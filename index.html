@@ -1,1602 +1,352 @@
 <!DOCTYPE html>
-<html lang="es">
-
+<html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-864T9GQHP4"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
-
     gtag('config', 'G-864T9GQHP4');
   </script>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TOM DRACO — TECHNO CRUDO / HIPNÓTICO</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Tom Draco is a Madrid-based music producer, composer and sound designer. Explore original music and audiovisual projects.">
+  <title>Tom Draco – Music, sound & audiovisual work</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link
-    href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=VT323&family=Share+Tech+Mono&family=Barlow+Condensed:wght@300;400;500;700&display=swap"
-    rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600&family=Share+Tech+Mono&family=Syncopate:wght@400;700&family=VT323&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --black: #000000;
-      --deep: #050505;
-      --red: #ff2200;
-      --orange: #ff6600;
-      --magenta: #cc00ff;
-      --pink: #ff00aa;
-      --cyan: #00e5ff;
-      --gold: #ffaa00;
-      --white: #f0ece4;
-      --dim: rgba(240, 236, 228, 0.55);
-    }
-
-    *,
-    *::before,
-    *::after {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      background: var(--black);
-      color: var(--white);
-      font-family: 'Share Tech Mono', monospace;
-      /* VT323 = pixel/bitmap headers like PDF section labels
-       Syncopate = wide spaced caps like TOM DRACO logo in PDF
-       Barlow Condensed = clean condensed body paragraphs
-       Share Tech Mono = monospaced technical text */
-      overflow-x: hidden;
-      cursor: crosshair;
-    }
-
-    /* ── NOISE OVERLAY ── */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-      pointer-events: none;
-      z-index: 9999;
-      opacity: 0.35;
-      mix-blend-mode: overlay;
-    }
-
-    /* ── CURSOR ── */
-    .cursor {
-      position: fixed;
-      width: 8px;
-      height: 8px;
-      background: var(--red);
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 99999;
-      transform: translate(-50%, -50%);
-      transition: background 0.2s;
-      mix-blend-mode: difference;
-    }
-
-    .cursor-ring {
-      position: fixed;
-      width: 36px;
-      height: 36px;
-      border: 1px solid rgba(255, 34, 0, 0.5);
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 99998;
-      transform: translate(-50%, -50%);
-      transition: all 0.12s ease;
-    }
-
-    /* ── HERO ── */
-    #hero {
-      position: relative;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 0 6vw 8vh;
-      overflow: hidden;
-    }
-
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse 80% 70% at 60% 40%, rgba(204, 0, 255, 0.12) 0%, transparent 70%),
-        radial-gradient(ellipse 50% 60% at 30% 60%, rgba(255, 34, 0, 0.10) 0%, transparent 60%),
-        var(--black);
-    }
-
-    /* Big photo fills hero */
-    .hero-img {
-      position: absolute;
-      inset: 0;
-      background: url('images/01.jpeg') center/cover no-repeat;
-      opacity: 0;
-      animation: heroReveal 2s 0.4s ease forwards;
-      filter: saturate(1.2) contrast(1.1);
-    }
-
-    .hero-img::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%);
-    }
-
-    @keyframes heroReveal {
-      from {
-        opacity: 0;
-        transform: scale(1.05);
-      }
-
-      to {
-        opacity: 1;
-        transform: scale(1);
+    :root{--bg:#090909;--paper:#f0ece4;--muted:#b6b1aa;--red:#ff2020;--line:#41403e;--pad:clamp(1.25rem,5vw,5rem)}
+    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:var(--bg);color:var(--paper);font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;line-height:1.55} ::selection{background:var(--red);color:#000} a{color:inherit;text-decoration-thickness:1px;text-underline-offset:.25em} a:focus-visible,summary:focus-visible{outline:2px solid var(--red);outline-offset:5px} img{display:block;max-width:100%} p{margin:0 0 1.2em;max-width:68ch} h1,h2,h3,h4{margin:0;line-height:1; font-weight:400} .mono,nav,.meta,.link,summary,.chapter-number{font-family:'Share Tech Mono',monospace;text-transform:uppercase;letter-spacing:.12em;font-size:.7rem} .wrap{padding-inline:var(--pad)}
+    .site-nav{position:absolute;z-index:3;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.6rem var(--pad);font-size:.7rem} .brand{font-family:Syncopate,sans-serif;font-weight:700;letter-spacing:.08em;text-decoration:none;font-size:.85rem} .nav-links{display:flex;gap:clamp(1rem,3vw,3rem)} .nav-links a{text-decoration:none} .nav-links a:hover,.text-link:hover{color:var(--red)}
+    .hero{min-height: min(900px,100svh);min-height: min(900px,100vh);position:relative;display:flex;align-items:flex-end;padding:9rem var(--pad) 3rem;isolation:isolate;background:#19100e} .hero:before{content:'';position:absolute;inset:0;z-index:-2;background:url('images/01.jpeg') center 38%/cover no-repeat} .hero:after{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(0,0,0,.65),rgba(0,0,0,.12) 70%),linear-gradient(0deg,#090909 0%,transparent 70%)} .hero-content{width:100%} .hero h1{font-family:VT323,monospace;font-size:clamp(6rem,17vw,16rem);line-height:.72;letter-spacing:.01em} .hero-bottom{display:flex;justify-content:space-between;align-items:end;gap:2rem;margin-top:2.5rem} .hero-bottom p{font-size:clamp(1.2rem,2vw,1.8rem);line-height:1.2;max-width:25ch;margin:0}.hero-bottom .meta{text-align:right;line-height:1.8;color:#ddd}
+    section{scroll-margin-top:2rem}.intro{display:grid;grid-template-columns:1fr 1.2fr;gap:8vw;padding-block:clamp(6rem,12vw,12rem)} .section-title{font-family:Syncopate,sans-serif;font-size:clamp(2.3rem,5.5vw,5.5rem);line-height:1.02;letter-spacing:-.025em;text-transform:uppercase}.intro .section-title{max-width:8ch}.lead{font-size:clamp(1.6rem,2.6vw,2.5rem);line-height:1.2;color:var(--paper)} .copy{color:var(--muted);font-size:1.2rem}.text-link{display:inline-block;margin-top:1rem;color:var(--paper)}
+    .work-head{display:flex;justify-content:space-between;align-items:end;gap:2rem;border-top:1px solid var(--line);padding-top:2rem;padding-bottom:4rem}.work-head p{margin:0;color:var(--muted);max-width:25ch}.project{border-top:1px solid var(--line);padding-block:clamp(4rem,8vw,8rem)} .project-header{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;margin-bottom:3rem}.project-title{font-family:VT323,monospace;font-size:clamp(5rem,12vw,11rem);line-height:.75;text-transform:uppercase}.project-sub{color:var(--muted);margin:0;max-width:38ch;font-size:1.3rem}.project-sub strong{display:block;color:var(--red);font-family:'Share Tech Mono',monospace;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:1rem;font-weight:400}
+    .project-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(2rem,6vw,7rem);align-items:start}.video{position:relative;aspect-ratio:16/9;background:#171717;overflow:hidden}.video img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}.video:hover img{transform:scale(1.035)}.video:after{content:'WATCH FILM ↗';position:absolute;left:1rem;bottom:1rem;background:var(--paper);color:#090909;padding:.8rem 1rem;font: .7rem 'Share Tech Mono',monospace;letter-spacing:.1em}.video:before{content:'';position:absolute;inset:0;background:linear-gradient(transparent 45%,rgba(0,0,0,.55));z-index:1;pointer-events:none}.video:after{z-index:2}.video{display:block}.caption{margin-top:.8rem;color:var(--muted);font-size:.7rem;line-height:1.5}.project-copy h3,.detail-heading{font-family:Syncopate,sans-serif;text-transform:uppercase;font-size:clamp(1.25rem,2vw,2rem);line-height:1.25;margin-bottom:1.2rem}.project-copy p,.detail-content p{color:var(--muted)} .project-copy .lead{color:var(--paper);font-size:1.5rem}
+    .solar-art{min-height:clamp(350px,50vw,650px);display:flex;align-items:flex-end;padding:2rem;position:relative;overflow:hidden;background:#790c0c}.solar-art:before{content:'';position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.7),transparent 80%),url('images/03.jpeg') center/cover;filter:saturate(.8)}.solar-art span{position:relative;font-family:VT323,monospace;font-size:clamp(4rem,12vw,12rem);line-height:.7}.sequence{display:flex;flex-wrap:wrap;gap:.5rem 1rem;color:var(--red);margin:2rem 0;font-family:'Share Tech Mono',monospace;text-transform:uppercase;font-size:.7rem;letter-spacing:.08em}
+    details{border-top:1px solid var(--line);margin-top:2.5rem} details:last-child{border-bottom:1px solid var(--line)} summary{cursor:pointer;list-style:none;padding:1.3rem 0;display:flex;justify-content:space-between;gap:1rem} summary::-webkit-details-marker{display:none} summary:after{content:'+';font-size:1.3rem;color:var(--red);line-height:.6} details[open] summary:after{content:'−'} .detail-content{padding:1rem 0 2rem;max-width:75ch}.detail-content h4{font-family:'Share Tech Mono',monospace;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;margin:2rem 0 .8rem;color:var(--paper)} .detail-content h4:first-child{margin-top:0}.credits{font-size:.95rem;color:var(--muted)}
+    .landscape-intro{max-width:75ch;margin-bottom:4rem}.landscape-list{border-top:1px solid var(--line)} .landscape-item{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(2rem,6vw,7rem);padding:3rem 0;border-bottom:1px solid var(--line)} .landscape-item h3{font-family:VT323,monospace;font-size:clamp(2.8rem,5vw,5rem);line-height:.9;margin:.8rem 0 1.5rem}.landscape-item p{color:var(--muted)} .chapter-number{color:var(--red)} .final-thought{padding:5rem 0 0;display:grid;grid-template-columns:1fr 1fr;gap:4rem}.final-thought blockquote{font-family:VT323,monospace;font-size:clamp(2.5rem,5vw,5rem);line-height:1;margin:0;max-width:16ch}.final-thought p{color:var(--muted)}
+    .contact{padding-block:clamp(6rem,12vw,12rem);background:var(--red);color:#100b09}.contact .section-title{font-size:clamp(3rem,8vw,7rem);max-width:11ch}.contact-bottom{display:flex;justify-content:space-between;align-items:end;gap:2rem;margin-top:3rem}.contact-bottom p{font-size:1.4rem;max-width:32ch;margin:0}.contact a{font-family:'Share Tech Mono',monospace;text-transform:uppercase;font-size:.8rem;letter-spacing:.08em} footer{display:flex;justify-content:space-between;gap:2rem;flex-wrap:wrap;padding-block:2rem;color:var(--muted)} footer div{display:flex;gap:1.5rem;flex-wrap:wrap} footer a{color:var(--paper)}
+    /* Motion follows the music-led editorial rhythm: a quiet stage, then a reveal. */
+    .hero{overflow:hidden}
+    .hero:before{transform:scale(1.04);animation:stage-arrival 1.8s cubic-bezier(.16,1,.3,1) both}
+    @keyframes stage-arrival{from{transform:scale(1.12);filter:brightness(.65)}to{transform:scale(1.04);filter:brightness(1)}}
+    .work-index{display:flex;flex-wrap:wrap;gap:0;margin:-1rem 0 3rem;border-top:1px solid var(--line)}
+    .work-index a{flex:1 1 12rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.2rem 1rem 1.2rem 0;border-bottom:1px solid var(--line);font: .7rem 'Share Tech Mono',monospace;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;transition:color .2s ease}
+    .work-index a span{color:var(--red);transition:transform .3s cubic-bezier(.16,1,.3,1)}
+    .work-index a:hover,.work-index a:focus-visible{color:var(--red)}
+    .work-index a:hover span,.work-index a:focus-visible span{transform:translate(4px,4px)}
+    .project-title{overflow-wrap:anywhere}
+    .video img{transition:transform .8s cubic-bezier(.16,1,.3,1),filter .5s ease}
+    .video:hover img,.video:focus-visible img{transform:scale(1.06);filter:saturate(1.2)}
+    .video:after{transition:background .25s ease,color .25s ease,transform .4s cubic-bezier(.16,1,.3,1)}
+    .video:hover:after,.video:focus-visible:after{background:var(--red);color:#090909;transform:translateX(.35rem)}
+    summary{transition:color .2s ease} summary:hover,summary:focus-visible{color:var(--red)}
+    .contact a{display:inline-block;transition:transform .3s cubic-bezier(.16,1,.3,1)}
+    .contact a:hover,.contact a:focus-visible{transform:translateX(.4rem)}
+    @supports (animation-timeline: view()){
+      @media (prefers-reduced-motion:no-preference){
+        .hero:before{animation:stage-drift linear both;animation-timeline:view();animation-range:exit}
+        @keyframes stage-drift{from{transform:scale(1.04) translateY(0)}to{transform:scale(1.12) translateY(5%)}}
       }
     }
+    /* Short channel-split bursts recall the original pixel-display glitch. */
+    .hero h1{position:relative;display:inline-block;white-space:nowrap}
+    .hero h1::before,.hero h1::after{content:attr(data-text);position:absolute;inset:0;white-space:nowrap;pointer-events:none;opacity:0;animation-duration:6s;animation-timing-function:steps(1,end);animation-iteration-count:infinite}
+    .hero h1::before{color:#00e5ff;animation-name:glitch-cyan}
+    .hero h1::after{color:#ff00aa;animation-name:glitch-magenta}
+    .hero.motion-paused h1::before,.hero.motion-paused h1::after{animation-play-state:paused}
+    @keyframes glitch-cyan{0%,20%,22%,57%,59%,100%{opacity:0}20.3%{opacity:.8;transform:translateX(-8px);clip-path:inset(12% 0 72%)}20.8%{opacity:.7;transform:translateX(10px);clip-path:inset(55% 0 28%)}21.4%{opacity:.7;transform:translateX(-12px);clip-path:inset(5% 0 82%)}57.3%{opacity:.8;transform:translateX(12px);clip-path:inset(38% 0 42%)}58%{opacity:.7;transform:translateX(-7px);clip-path:inset(70% 0 12%)}}
+    @keyframes glitch-magenta{0%,20%,22%,57%,59%,100%{opacity:0}20.5%{opacity:.75;transform:translateX(10px);clip-path:inset(60% 0 20%)}21%{opacity:.65;transform:translateX(-12px);clip-path:inset(25% 0 58%)}21.6%{opacity:.8;transform:translateX(14px);clip-path:inset(82% 0 0)}57.5%{opacity:.75;transform:translateX(-8px);clip-path:inset(10% 0 70%)}58.2%{opacity:.65;transform:translateX(12px);clip-path:inset(50% 0 32%)}}
+    @media(prefers-reduced-motion:reduce){.hero h1::before,.hero h1::after{animation:none}}
+    /* Persistent navigation and an immersive, accessible mobile index. */
+    .skip-link{position:fixed;z-index:120;top:.5rem;left:.5rem;padding:.75rem 1rem;background:var(--paper);color:var(--bg);transform:translateY(-150%)}
+    .skip-link:focus{transform:translateY(0)}
+    .site-nav{position:fixed;z-index:50;min-height:4.75rem;padding-block:1rem;background:rgba(9,9,9,.94);border-bottom:1px solid rgba(240,236,228,.15)}
+    .site-nav .brand{font-size:clamp(.72rem,1vw,.85rem)}
+    .nav-links a{padding:.7rem 0;position:relative}
+    .nav-links a::after{content:'';position:absolute;bottom:.25rem;left:0;right:0;height:1px;background:var(--red);transform:scaleX(.001);transform-origin:left;transition:transform .25s ease}
+    .nav-links a:hover::after,.nav-links a:focus-visible::after{transform:scaleX(1)}
+    .menu-trigger{display:none;align-items:center;gap:.8rem;min-height:44px;padding:.5rem 0 .5rem 1rem;border:0;background:none;color:var(--paper);font: .7rem 'Share Tech Mono',monospace;letter-spacing:.12em;text-transform:uppercase;cursor:pointer}
+    .menu-trigger:focus-visible,.menu-close:focus-visible{outline:2px solid var(--red);outline-offset:4px}
+    .menu-icon{width:25px;height:10px;border-top:1px solid currentColor;border-bottom:1px solid currentColor}
+    .mobile-menu{position:fixed;inset:0;width:100%;max-width:none;height:100%;height:100dvh;max-height:none;margin:0;padding:0;border:0;background:var(--bg);color:var(--paper);overflow:auto}
+    .mobile-menu::backdrop{background:#090909}
+    .menu-inner{min-height:100%;display:flex;flex-direction:column;padding:1rem var(--pad) max(2rem,env(safe-area-inset-bottom));background:linear-gradient(160deg,#1c0c0c 0%,#090909 45%)}
+    .menu-top{display:flex;align-items:center;justify-content:space-between;min-height:2.75rem;border-bottom:1px solid var(--line);padding-bottom:1rem}
+    .menu-close{border:0;background:none;color:var(--paper);font: .7rem 'Share Tech Mono',monospace;letter-spacing:.12em;text-transform:uppercase;min-height:44px;cursor:pointer}
+    .menu-close span{font-size:1.7rem;vertical-align:middle;margin-left:.6rem;color:var(--red)}
+    .menu-main{display:flex;flex-direction:column;justify-content:center;flex:1;padding:3rem 0}
+    .menu-main a{font:clamp(4rem,15vw,7rem)/.95 VT323,monospace;text-decoration:none;text-transform:uppercase;border-bottom:1px solid var(--line);padding:.15em 0;transition:color .2s ease}
+    .menu-main a:hover,.menu-main a:focus-visible{color:var(--red)}
+    .menu-bottom{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;color:var(--muted);font: .7rem/1.7 'Share Tech Mono',monospace;text-transform:uppercase;letter-spacing:.08em}
+    .menu-bottom a{color:var(--paper)}
+    body.menu-open{overflow:hidden}
+    section,article[id]{scroll-margin-top:6rem}
+    .hero{padding-top:10rem}
+    .project-header{align-items:end}
+    .project-title{letter-spacing:-.015em}
+    .work-index a{transition:color .2s ease,border-color .2s ease}
+    .work-index a:hover,.work-index a:focus-visible{border-color:var(--red)}
+    .video:focus-visible{outline-offset:4px}
+    @media(max-width:700px){
+      .site-nav{min-height:4.25rem}
+      .js-menu .site-nav .nav-links{display:none}
+      .js-menu .menu-trigger{display:flex}
+      .site-nav .nav-links{gap:.8rem}
+      .hero{padding-top:8rem}
+      .work-index{margin-top:-1rem}
+      .work-index a{flex-basis:100%;padding-block:1rem}
+    }
+    @media(max-width:700px){.site-nav{align-items:center}.nav-links{gap:.8rem;font-size:.6rem;flex-wrap:wrap;justify-content:flex-end}.hero{min-height:90svh}.hero:before{background-position:58% center}.hero h1{font-size:clamp(3.25rem,19vw,9rem)}.hero-bottom{align-items:start;flex-direction:column}.hero-bottom .meta{text-align:left}.intro,.project-header,.project-grid,.landscape-item,.final-thought{grid-template-columns:1fr;gap:2rem}.intro{padding-block:6rem}.work-head{align-items:start;flex-direction:column}.project-header{margin-bottom:2rem}.project-title{font-size:clamp(4rem,17vw,7rem)}.landscape-item{padding-block:2.5rem}.landscape-item .video{order:-1}.final-thought{padding-top:3rem}.contact-bottom{align-items:start;flex-direction:column} footer{flex-direction:column}.solar-art{min-height:380px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important}}
 
-    /* Scanlines */
-    .scanlines {
-      position: absolute;
-      inset: 0;
-      background: repeating-linear-gradient(to bottom,
-          transparent 0px,
-          transparent 3px,
-          rgba(0, 0, 0, 0.08) 3px,
-          rgba(0, 0, 0, 0.08) 4px);
-      pointer-events: none;
-      z-index: 2;
+    /* Art direction: an editorial stage for sound and image. */
+    :root{--bg:#10100f;--paper:#eae7df;--muted:#bcbab3;--red:#ff493d;--line:#474640;--pad:clamp(1.25rem,5.2vw,6rem)}
+    body{background:var(--bg);font-family:'Barlow Condensed',sans-serif;font-size:1.2rem} ::selection{background:#ff493d;color:#10100f}
+    .site-nav{background:rgba(16,16,15,.9);border-color:rgba(234,231,223,.18);min-height:5rem}
+    .brand{letter-spacing:.04em}.nav-links{gap:3rem}.nav-links a{font-size:.7rem}
+    .hero{min-height:100svh;max-height:none;padding:8rem var(--pad) 2.5rem;background:#090909;align-items:flex-end}
+    .hero:before{background-position:center 43%;opacity:.85}
+    .hero:after{background:linear-gradient(90deg,rgba(0,0,0,.42),transparent 70%),linear-gradient(0deg,#10100f 0%,transparent 38%)}
+    .hero-content{position:relative}.hero h1{font-size:clamp(5rem,17.3vw,18rem);line-height:.7;letter-spacing:-.035em;margin-left:-.035em}
+    .hero-bottom{border-top:1px solid rgba(234,231,223,.6);padding-top:1.4rem;margin-top:2.5rem;align-items:end}
+    .hero-bottom p{font-size:clamp(1.4rem,2.3vw,2.2rem);line-height:1.05}.hero-bottom .meta{color:#eee}
+    .hero-action{display:inline-flex;align-items:center;gap:2rem;color:var(--paper);text-decoration:none;border-bottom:1px solid var(--paper);padding-bottom:.45rem;font: .7rem 'Share Tech Mono',monospace;letter-spacing:.1em;text-transform:uppercase;transition:color .25s,border-color .25s}
+    .hero-action:hover{color:var(--red);border-color:var(--red)}
+    .intro{grid-template-columns:.85fr 1.15fr;gap:10vw;padding-block:clamp(7rem,13vw,13rem)}
+    .section-title{font-family:'Barlow Condensed',sans-serif;font-weight:500;font-size:clamp(3.5rem,7vw,7rem);line-height:.88;letter-spacing:-.025em}
+    .intro .section-title{max-width:7ch}.lead{font-size:clamp(1.8rem,3vw,3rem);line-height:1.12;letter-spacing:-.015em}
+    .copy{font-size:1.3rem;line-height:1.5}.text-link{margin-top:1.5rem;padding-bottom:.5rem;text-decoration:none;border-bottom:1px solid currentColor}
+    .work-head{padding-top:2rem;padding-bottom:5rem}.work-head p{font-size:1.35rem;line-height:1.25}.work-index{margin-bottom:0}.work-index a{font-size:.75rem;padding-block:1.5rem}
+    .project{padding-block:clamp(6rem,10vw,10rem)}.project-header{grid-template-columns:1.2fr .8fr;gap:2rem;margin-bottom:3.5rem}
+    .project-title{font-size:clamp(6rem,14vw,14rem);line-height:.72;letter-spacing:-.025em}.project-sub{font-size:1.45rem;line-height:1.25}
+    .project-grid{grid-template-columns:1.25fr .75fr;gap:clamp(2rem,6vw,7rem)}.project-copy{padding-top:.2rem}.project-copy .lead{font-size:clamp(1.7rem,2.5vw,2.5rem);line-height:1.12}
+    .project-copy h3,.detail-heading{font-family:'Barlow Condensed',sans-serif;font-weight:500;font-size:clamp(2rem,3vw,3rem);line-height:1;margin-top:3rem}
+    .video{background:#24211f}.video:after{content:'WATCH FILM  ↗';left:1.25rem;bottom:1.25rem;padding:1rem 1.2rem}.caption{margin-top:1rem}
+    .solar-art{min-height:clamp(420px,55vw,760px)}.solar-art:before{filter:saturate(.9)}.solar-art span{font-size:clamp(6rem,15vw,15rem);line-height:.7;letter-spacing:-.03em}
+    .sequence{line-height:1.8}.landscape-intro{max-width:68ch}.landscape-list{margin-top:5rem}.landscape-item{grid-template-columns:.65fr 1.35fr;gap:clamp(3rem,8vw,9rem);padding-block:4rem}.landscape-item h3{font-size:clamp(3.5rem,6vw,6rem)}
+    .final-thought{padding-top:7rem}.final-thought blockquote{font-size:clamp(3.5rem,6vw,6rem);line-height:.95}
+    .contact{background:#ef493c;padding-block:clamp(7rem,12vw,12rem)}.contact .section-title{font-size:clamp(4.5rem,10vw,10rem);max-width:10ch;line-height:.82}.contact-bottom{border-top:1px solid rgba(16,11,9,.5);padding-top:2rem;margin-top:5rem}.contact-bottom p{font-size:1.6rem;line-height:1.2}.contact a{font-size:.85rem;line-height:1.8}
+    footer{padding-block:2.5rem} footer .brand{color:var(--paper)}
+    @media(max-width:700px){
+      .hero{min-height:100svh;padding-top:8rem;padding-bottom:2rem}.hero:before{background-position:54% center}.hero:after{background:linear-gradient(0deg,#10100f 0%,rgba(0,0,0,.12) 65%)}
+      .hero h1{font-size:clamp(3.2rem,18.5vw,8rem);line-height:.8}.hero-bottom{gap:1.4rem;margin-top:1.5rem}.hero-bottom p{font-size:1.55rem}.hero-bottom .meta{font-size:.65rem}.hero-action{margin-top:.3rem}
+      .intro{grid-template-columns:1fr;gap:3rem;padding-block:6rem}.section-title{font-size:clamp(3.8rem,16vw,6rem)}.work-head{padding-bottom:3rem}
+      .project{padding-block:5rem}.project-header,.project-grid,.landscape-item,.final-thought{grid-template-columns:1fr;gap:2rem}.project-title{font-size:clamp(4.8rem,19vw,8rem)}.project-sub{font-size:1.25rem}.project-grid{gap:2.5rem}
+      .solar-art{min-height:420px}.solar-art span{font-size:28vw}.landscape-list{margin-top:3rem}.landscape-item{padding-block:3rem}.landscape-item .video{order:0}.landscape-item h3{font-size:3.5rem}.final-thought{padding-top:4rem}.contact .section-title{font-size:clamp(4rem,16vw,7rem)}.contact-bottom{margin-top:3rem}
     }
 
-    .hero-content {
-      position: relative;
-      z-index: 10;
-    }
 
-    .hero-tag {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: clamp(0.6rem, 1vw, 0.75rem);
-      letter-spacing: 0.35em;
-      color: var(--red);
-      text-transform: uppercase;
-      opacity: 0;
-      animation: fadeUp 0.8s 1s ease forwards;
-      margin-bottom: 1rem;
-    }
+    .video::before,.video::after{content:none}
+    .video iframe{display:block;width:100%;height:100%;border:0}.video iframe[hidden]{display:none}
+    .video-block{min-width:0}
+    .video{background:#090909}.video iframe:focus-visible{outline:2px solid var(--red);outline-offset:-2px}
+    .video-fallback{display:inline-block;margin-top:.75rem;color:var(--muted);font: .7rem/1.5 'Share Tech Mono',monospace;text-transform:uppercase;letter-spacing:.06em}.video-fallback:hover,.video-fallback:focus-visible{color:var(--paper)}
+    .video-poster{position:absolute;inset:0;width:100%;height:100%;padding:0;border:0;cursor:pointer;color:var(--paper);background:#191917;overflow:hidden;text-align:left}
+    .video-poster img{width:100%;height:100%;object-fit:cover;filter:brightness(.65);transition:transform .7s cubic-bezier(.16,1,.3,1),filter .3s ease}
+    .video-poster:hover img,.video-poster:focus-visible img{transform:scale(1.04);filter:brightness(.8)}
+    .video-play{position:absolute;inset:50% auto auto 50%;transform:translate(-50%,-50%);width:5rem;height:5rem;border:1px solid var(--paper);border-radius:50%;display:grid;place-items:center;background:rgba(16,16,15,.65)}
+    .video-play svg{width:1.2rem;height:1.2rem;margin-left:.2rem;fill:currentColor}
+    .video-poster:focus-visible{outline:2px solid var(--red);outline-offset:-3px}
+    .video-poster-label{position:absolute;left:1rem;bottom:1rem;font: .7rem/1.4 'Share Tech Mono',monospace;letter-spacing:.1em;text-transform:uppercase}
+    @media(prefers-reduced-motion:reduce){.video-poster img{transition:none}}
 
-    .hero-name {
-      font-family: 'VT323', monospace;
-      font-weight: 400;
-      font-size: clamp(5rem, 16vw, 18rem);
-      line-height: 0.88;
-      letter-spacing: 0.06em;
-      opacity: 0;
-      animation: fadeUp 1s 1.2s ease forwards;
-      color: var(--white);
-      text-transform: uppercase;
-      text-shadow:
-        0 0 20px rgba(255, 34, 0, 0.45),
-        0 0 60px rgba(255, 34, 0, 0.2),
-        0 0 120px rgba(255, 34, 0, 0.08);
+    /* Let the landscape films occupy the screen as individual works. */
+    @media (min-width:1000px){
+      .landscape-item{display:block;min-height:0;padding-block:clamp(6rem,9vw,10rem)}
+      .landscape-item > div:first-child{display:grid;grid-template-columns:minmax(0,1fr) minmax(16rem,.7fr);column-gap:clamp(3rem,8vw,8rem);align-items:end;margin-bottom:3rem}
+      .landscape-item .chapter-number{grid-column:1 / -1}
+      .landscape-item h3{margin:.8rem 0 0;overflow-wrap:anywhere}
+      .landscape-item p{grid-column:2;max-width:36ch;margin:0 0 .7rem}
+      .landscape-item .video-block{width:min(100%,128vh);margin-inline:auto}
     }
-
-    .hero-name span {
-      display: block;
-      font-family: 'VT323', monospace;
-      -webkit-text-stroke: 1px rgba(255, 255, 255, 0.22);
-      color: transparent;
-      font-size: clamp(1.4rem, 4vw, 5rem);
-      letter-spacing: 0.55em;
-      text-shadow: none;
-    }
-
-    .hero-name.small {
-      font-size: clamp(4rem, 12vw, 14rem);
-    }
-
-    .hero-sub {
-      font-size: clamp(0.7rem, 1.2vw, 0.9rem);
-      letter-spacing: 0.5em;
-      color: var(--dim);
-      opacity: 0;
-      animation: fadeUp 0.8s 1.5s ease forwards;
-      margin-top: 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 2rem;
-    }
-
-    .bpm-badges {
-      display: flex;
-      gap: 0.75rem;
-      opacity: 0;
-      animation: fadeUp 0.8s 1.8s ease forwards;
-      margin-top: 1.5rem;
-    }
-
-    .badge {
-      border: 1px solid rgba(255, 34, 0, 0.4);
-      padding: 0.3em 1em;
-      font-size: 0.7rem;
-      letter-spacing: 0.3em;
-      color: var(--red);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .badge::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: rgba(255, 34, 0, 0.06);
-    }
-
-    .scroll-hint {
-      position: absolute;
-      bottom: 3vh;
-      right: 6vw;
-      font-size: 0.65rem;
-      letter-spacing: 0.3em;
-      color: rgba(255, 255, 255, 0.3);
-      z-index: 10;
-      opacity: 0;
-      animation: fadeIn 1s 2.2s ease forwards;
-      writing-mode: vertical-rl;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .scroll-hint::before {
-      content: '';
-      width: 1px;
-      height: 60px;
-      background: linear-gradient(to bottom, transparent, rgba(255, 34, 0, 0.6));
-      display: block;
-      animation: lineGrow 1.5s 2.5s ease forwards;
-      transform-origin: top;
-      transform: scaleY(0);
-    }
-
-    @keyframes lineGrow {
-      to {
-        transform: scaleY(1);
+    @supports (animation-timeline:view()){
+      @media (min-width:1000px) and (prefers-reduced-motion:no-preference){
+        .landscape-item .video-block{animation:landscape-arrival linear both;animation-timeline:view();animation-range:entry 0% entry 85%}
+        @keyframes landscape-arrival{from{transform:translateY(2rem) scale(.96);opacity:.8}to{transform:translateY(0) scale(1);opacity:1}}
       }
     }
 
-    /* ── ABOUT ── */
-    #about {
-      padding: 12vh 6vw;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8vw;
-      align-items: center;
-      position: relative;
-    }
-
-    .about-img-wrap {
-      position: relative;
-      aspect-ratio: 1;
-      overflow: hidden;
-    }
-
-    .about-img-wrap img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: saturate(0.8) contrast(1.2);
-      transform: scale(1.1);
-      transition: transform 8s ease;
-    }
-
-    .about-img-wrap:hover img {
-      transform: scale(1);
-    }
-
-    .about-img-wrap::before {
-      content: '';
-      position: absolute;
-      inset: -1px;
-      border: 1px solid rgba(255, 34, 0, 0.2);
-      z-index: 2;
-      pointer-events: none;
-    }
-
-    .img-glitch {
-      position: absolute;
-      inset: 0;
-      background: inherit;
-      mix-blend-mode: screen;
-      opacity: 0;
-      pointer-events: none;
-    }
-
-    .about-text {
-      position: relative;
-    }
-
-    .section-label {
-      font-family: 'VT323', monospace;
-      font-size: 1.1rem;
-      letter-spacing: 0.4em;
-      color: var(--red);
-      text-transform: uppercase;
-      margin-bottom: 2rem;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .section-label::before {
-      content: '';
-      width: 40px;
-      height: 1px;
-      background: var(--red);
-      display: block;
-    }
-
-    .about-title {
-      font-family: 'Syncopate', sans-serif;
-      font-weight: 700;
-      font-size: clamp(2rem, 3.5vw, 3.5rem);
-      line-height: 1.1;
-      margin-bottom: 2rem;
-      color: var(--white);
-      letter-spacing: 0.02em;
-      text-transform: uppercase;
-    }
-
-    .about-body {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 300;
-      font-size: 1rem;
-      line-height: 1.9;
-      color: var(--dim);
-      margin-bottom: 2rem;
-      letter-spacing: 0.03em;
-    }
-
-    .influences {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-      margin-top: 2rem;
-    }
-
-    .influence-item {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      font-size: 0.7rem;
-      letter-spacing: 0.2em;
-      color: rgba(255, 255, 255, 0.4);
-      padding: 0.5rem 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-      transition: color 0.3s;
-    }
-
-    .influence-item::before {
-      content: '→';
-      color: var(--red);
-      font-size: 0.8rem;
-    }
-
-    .influence-item:hover {
-      color: var(--white);
-    }
-
-    /* ── SOUND SECTION ── */
-    #sound {
-      padding: 12vh 6vw;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .sound-header {
-      text-align: center;
-      margin-bottom: 8vh;
-      position: relative;
-      z-index: 2;
-    }
-
-    .big-title {
-      font-family: 'Syncopate', sans-serif;
-      font-weight: 700;
-      font-size: clamp(3rem, 9vw, 9rem);
-      line-height: 1;
-      letter-spacing: 0.04em;
-      color: var(--white);
-      text-transform: uppercase;
-      position: relative;
-    }
-
-    .big-title.outline {
-      -webkit-text-stroke: 1px rgba(255, 255, 255, 0.15);
-      color: transparent;
-    }
-
-    .traits-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 2px;
-      margin-bottom: 8vh;
-      position: relative;
-      z-index: 2;
-    }
-
-    .trait {
-      padding: 4vh 2vw;
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      position: relative;
-      overflow: hidden;
-      transition: border-color 0.4s;
-      cursor: default;
-    }
-
-    .trait:hover {
-      border-color: rgba(255, 34, 0, 0.3);
-    }
-
-    .trait::before {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 0;
-      background: rgba(255, 34, 0, 0.05);
-      transition: height 0.4s;
-    }
-
-    .trait:hover::before {
-      height: 100%;
-    }
-
-    .trait-num {
-      font-size: 0.6rem;
-      letter-spacing: 0.3em;
-      color: rgba(255, 34, 0, 0.5);
-      margin-bottom: 1.5rem;
-      display: block;
-    }
-
-    .trait-name {
-      font-family: 'VT323', monospace;
-      font-size: clamp(2.2rem, 3.5vw, 3.8rem);
-      letter-spacing: 0.08em;
-      display: block;
-      margin-bottom: 1rem;
-      line-height: 1;
-    }
-
-    .trait-desc {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 300;
-      font-size: 0.85rem;
-      line-height: 1.8;
-      color: var(--dim);
-      letter-spacing: 0.02em;
-    }
-
-    /* ── PERFORMANCE SECTION ── */
-    #performance {
-      padding: 12vh 6vw;
-      position: relative;
-    }
-
-    .perf-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4vw;
-      margin-top: 6vh;
-    }
-
-    .perf-img {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .perf-img img {
-      width: 100%;
-      display: block;
-      filter: saturate(1.1) contrast(1.1);
-      transition: transform 0.8s ease, filter 0.8s ease;
-    }
-
-    .perf-img:hover img {
-      transform: scale(1.04);
-      filter: saturate(1.4) contrast(1.15);
-    }
-
-    .perf-img-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(255, 34, 0, 0.1) 0%, transparent 60%);
-      pointer-events: none;
-      opacity: 0;
-      transition: opacity 0.4s;
-    }
-
-    .perf-img:hover .perf-img-overlay {
-      opacity: 1;
-    }
-
-    .perf-info {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 3vh;
-    }
-
-    .perf-point {
-      border-left: 1px solid rgba(255, 34, 0, 0.3);
-      padding-left: 2rem;
-      position: relative;
-    }
-
-    .perf-point::before {
-      content: '';
-      position: absolute;
-      left: -4px;
-      top: 50%;
-      width: 7px;
-      height: 7px;
-      background: var(--red);
-      border-radius: 50%;
-      transform: translateY(-50%);
-    }
-
-    .perf-point h3 {
-      font-family: 'VT323', monospace;
-      font-size: 1.8rem;
-      letter-spacing: 0.12em;
-      margin-bottom: 0.5rem;
-      text-transform: uppercase;
-    }
-
-    .perf-point p {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 300;
-      font-size: 0.9rem;
-      line-height: 1.8;
-      color: var(--dim);
-      letter-spacing: 0.02em;
-    }
-
-    /* ── MIXES ── */
-    #mixes {
-      padding: 12vh 6vw;
-      position: relative;
-      background: linear-gradient(to bottom, transparent, rgba(204, 0, 255, 0.03), transparent);
-    }
-
-    .sc-embed-wrap {
-      margin-top: 6vh;
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-
-    .sc-track {
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      padding: 2.5vh 2vw;
-      display: flex;
-      align-items: center;
-      gap: 2vw;
-      transition: background 0.3s, border-color 0.3s;
-      cursor: pointer;
-      text-decoration: none;
-      color: inherit;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .sc-track::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      width: 0;
-      background: rgba(255, 34, 0, 0.06);
-      transition: width 0.5s ease;
-    }
-
-    .sc-track:hover {
-      border-color: rgba(255, 34, 0, 0.25);
-    }
-
-    .sc-track:hover::after {
-      width: 100%;
-    }
-
-    .sc-num {
-      font-size: 0.6rem;
-      letter-spacing: 0.3em;
-      color: rgba(255, 34, 0, 0.5);
-      min-width: 2rem;
-    }
-
-    .sc-play {
-      width: 36px;
-      height: 36px;
-      border: 1px solid rgba(255, 34, 0, 0.4);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      transition: background 0.3s, border-color 0.3s;
-    }
-
-    .sc-track:hover .sc-play {
-      background: var(--red);
-      border-color: var(--red);
-    }
-
-    .sc-play svg {
-      width: 12px;
-      height: 12px;
-      fill: currentColor;
-      margin-left: 2px;
-    }
-
-    .sc-title {
-      flex: 1;
-      font-family: 'Syncopate', sans-serif;
-      font-weight: 400;
-      font-size: 0.9rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .sc-tag {
-      font-size: 0.6rem;
-      letter-spacing: 0.3em;
-      color: rgba(255, 34, 0, 0.6);
-      text-transform: uppercase;
-    }
-
-    .sc-arrow {
-      font-size: 0.9rem;
-      color: rgba(255, 255, 255, 0.2);
-      transition: color 0.3s, transform 0.3s;
-    }
-
-    .sc-track:hover .sc-arrow {
-      color: var(--red);
-      transform: translateX(4px);
-    }
-
-    .sc-cta {
-      margin-top: 4vh;
-      text-align: center;
-    }
-
-    /* ── BOOKING ── */
-    #booking {
-      padding: 16vh 6vw;
-      position: relative;
-      overflow: hidden;
-      text-align: center;
-    }
-
-    .booking-bg {
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(255, 34, 0, 0.06) 0%, transparent 70%);
-      pointer-events: none;
-    }
-
-    .booking-title {
-      font-family: 'Syncopate', sans-serif;
-      font-weight: 700;
-      font-size: clamp(3rem, 8vw, 8rem);
-      line-height: 1.05;
-      position: relative;
-      z-index: 2;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-    }
-
-    .booking-title .outline {
-      -webkit-text-stroke: 1px rgba(255, 255, 255, 0.15);
-      color: transparent;
-      display: block;
-    }
-
-    .booking-info {
-      display: flex;
-      justify-content: center;
-      gap: 6vw;
-      margin: 6vh 0;
-      position: relative;
-      z-index: 2;
-      flex-wrap: wrap;
-    }
-
-    .booking-item {
-      text-align: left;
-    }
-
-
-    .btn-primary {
-      display: inline-block;
-      padding: 1.2em 3em;
-      border: 1px solid var(--red);
-      color: var(--white);
-      text-decoration: none;
-      font-size: 0.75rem;
-      letter-spacing: 0.4em;
-      text-transform: uppercase;
-      position: relative;
-      overflow: hidden;
-      transition: color 0.4s;
-      z-index: 2;
-    }
-
-    .btn-primary::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: var(--red);
-      transform: translateX(-101%);
-      transition: transform 0.4s ease;
-    }
-
-    .btn-primary:hover {
-      color: var(--black);
-    }
-
-    .btn-primary:hover::before {
-      transform: translateX(0);
-    }
-
-    .btn-primary span {
-      position: relative;
-      z-index: 1;
-    }
-
-    /* ── FOOTER ── */
-    footer {
-      padding: 4vh 6vw;
-      border-top: 1px solid rgba(255, 255, 255, 0.06);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 2rem;
-    }
-
-    .footer-logo {
-      font-family: 'Syncopate', sans-serif;
-      font-weight: 700;
-      font-size: 1.1rem;
-      letter-spacing: 0.15em;
-      color: var(--white);
-    }
-
-    .booking-item label {
-      display: block;
-      font-family: 'VT323', monospace;
-      font-size: 1rem;
-      letter-spacing: 0.4em;
-      color: rgba(255, 34, 0, 0.6);
-      margin-bottom: 0.5rem;
-    }
-
-    .booking-item span {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 300;
-      font-size: 0.95rem;
-      color: var(--dim);
-      letter-spacing: 0.05em;
-    }
-
-    .social-links {
-      display: flex;
-      gap: 2rem;
-    }
-
-    .social-links a {
-      font-size: 0.65rem;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.4);
-      text-decoration: none;
-      transition: color 0.3s;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .social-links a:hover {
-      color: var(--red);
-    }
-
-    .footer-copy {
-      font-size: 0.6rem;
-      color: rgba(255, 255, 255, 0.2);
-      letter-spacing: 0.2em;
-    }
-
-    /* ── ANIMATIONS ── */
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
+    /* A quiet, full-width coda to the landscape films. */
+    .final-thought{display:block;padding:clamp(5rem,10vw,10rem) 0 0}
+    .final-thought blockquote{max-width:19ch;margin:0;color:var(--paper);font-family:'Barlow Condensed',sans-serif;font-weight:400;font-size:clamp(3.3rem,6.5vw,6rem);line-height:.98;letter-spacing:-.025em;text-wrap:balance}
+    .final-thought blockquote em{font-style:normal;color:var(--red)}
+    .final-thought > div{max-width:36rem;margin:clamp(3rem,7vw,7rem) 0 0 auto;padding-top:1.5rem;border-top:1px solid var(--line)}
+    .final-thought > div > p:first-child{font-size:clamp(1.25rem,1.6vw,1.5rem);line-height:1.45}
+    .final-thought .credits{margin:2.5rem 0 0;font-size:1rem;line-height:1.7}
+    .final-thought .credits a{color:var(--paper)}
+    .final-thought .credits a:hover{color:var(--red)}
+    @media(max-width:700px){.final-thought{padding-top:5rem}.final-thought blockquote{font-size:clamp(3rem,11vw,4.5rem)}.final-thought > div{margin-top:3rem}}
+
+    /* The final film's image carries the question into the closing passage. */
+    .final-thought{position:relative;isolation:isolate;overflow:hidden;margin:clamp(3rem,6vw,6rem) calc(-1 * var(--pad)) 0;padding:clamp(6rem,11vw,11rem) var(--pad);background:#171715}
+    .final-thought::before{content:'';position:absolute;inset:-8%;z-index:-2;background:url('https://i.ytimg.com/vi/D6m7mjxIOAo/hqdefault.jpg') center/cover no-repeat;opacity:.22;filter:grayscale(1)}
+    .final-thought::after{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(16,16,15,.93),rgba(16,16,15,.68)),linear-gradient(0deg,rgba(16,16,15,.8),transparent 60%)}
+    .final-thought > div{border-color:rgba(234,231,223,.45)}
+    @supports (animation-timeline:view()){
+      @media(prefers-reduced-motion:no-preference){
+        .final-thought::before{animation:landscape-coda linear both;animation-timeline:view();animation-range:entry 0% exit 100%}
+        @keyframes landscape-coda{from{transform:scale(1.06) translateY(-3%)}to{transform:scale(1.06) translateY(3%)}}
       }
     }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-
-      to {
-        opacity: 1;
-      }
-    }
-
-    /* Reveal-on-scroll */
-    .reveal {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: opacity 0.9s ease, transform 0.9s ease;
-    }
-
-    .reveal.active {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .reveal-left {
-      opacity: 0;
-      transform: translateX(-60px);
-      transition: opacity 0.9s ease, transform 0.9s ease;
-    }
-
-    .reveal-left.active {
-      opacity: 1;
-      transform: translateX(0);
-    }
-
-    .reveal-right {
-      opacity: 0;
-      transform: translateX(60px);
-      transition: opacity 0.9s ease, transform 0.9s ease;
-    }
-
-    .reveal-right.active {
-      opacity: 1;
-      transform: translateX(0);
-    }
-
-    .reveal-scale {
-      opacity: 0;
-      transform: scale(0.92);
-      transition: opacity 1s ease, transform 1s ease;
-    }
-
-    .reveal-scale.active {
-      opacity: 1;
-      transform: scale(1);
-    }
-
-    .delay-1 {
-      transition-delay: 0.1s !important;
-    }
-
-    .delay-2 {
-      transition-delay: 0.2s !important;
-    }
-
-    .delay-3 {
-      transition-delay: 0.3s !important;
-    }
-
-    .delay-4 {
-      transition-delay: 0.4s !important;
-    }
-
-    .delay-5 {
-      transition-delay: 0.5s !important;
-    }
-
-    .delay-6 {
-      transition-delay: 0.6s !important;
-    }
-
-    /* ── GLITCH — VT323 pixel-display corruption ── */
-    .glitch-text {
-      position: relative;
-      display: inline-block;
-      /* base phosphor flicker on the text itself */
-      animation: pixelFlicker 6s infinite steps(1);
-    }
-
-    /* Cyan channel — shifts left, covers top half in a choppy slice */
-    .glitch-text::before {
-      content: attr(data-text);
-      position: absolute;
-      top: 0;
-      left: 0;
-      font: inherit;
-      color: var(--cyan);
-      pointer-events: none;
-      opacity: 0;
-      /* pixel fonts look best with hard skew + big translate */
-      animation: glitchCyan 5s infinite steps(1);
-    }
-
-    /* Red/magenta channel — shifts right, covers bottom slice */
-    .glitch-text::after {
-      content: attr(data-text);
-      position: absolute;
-      top: 0;
-      left: 0;
-      font: inherit;
-      color: var(--magenta);
-      pointer-events: none;
-      opacity: 0;
-      animation: glitchMagenta 5s infinite steps(1);
-    }
-
-    /* Flicker of the base text — mimics phosphor CRT dropout */
-    @keyframes pixelFlicker {
-
-      0%,
-      100% {
-        opacity: 1;
-      }
-
-      /* two quick dropout bursts */
-      72% {
-        opacity: 1;
-      }
-
-      72.5% {
-        opacity: 0.05;
-      }
-
-      73% {
-        opacity: 1;
-      }
-
-      73.8% {
-        opacity: 0.6;
-      }
-
-      74.2% {
-        opacity: 1;
-      }
-
-      88% {
-        opacity: 1;
-      }
-
-      88.3% {
-        opacity: 0.1;
-      }
-
-      88.6% {
-        opacity: 1;
-      }
-    }
-
-    /* Cyan ghost: big horizontal slice jumps, skew, large X offset */
-    @keyframes glitchCyan {
-
-      0%,
-      100% {
-        opacity: 0;
-      }
-
-      /* burst 1 */
-      20% {
-        opacity: 0;
-      }
-
-      20.5% {
-        opacity: 0.75;
-        transform: translateX(-8px) skewX(-2deg);
-        clip-path: polygon(0 12%, 100% 12%, 100% 28%, 0 28%);
-      }
-
-      21% {
-        opacity: 0.75;
-        transform: translateX(10px) skewX(3deg);
-        clip-path: polygon(0 55%, 100% 55%, 100% 72%, 0 72%);
-      }
-
-      21.4% {
-        opacity: 0.6;
-        transform: translateX(-14px) skewX(-1deg);
-        clip-path: polygon(0 5%, 100% 5%, 100% 18%, 0 18%);
-      }
-
-      21.8% {
-        opacity: 0;
-      }
-
-      /* burst 2 */
-      57% {
-        opacity: 0;
-      }
-
-      57.3% {
-        opacity: 0.8;
-        transform: translateX(12px) skewX(4deg);
-        clip-path: polygon(0 38%, 100% 38%, 100% 58%, 0 58%);
-      }
-
-      57.7% {
-        opacity: 0.5;
-        transform: translateX(-6px) skewX(-3deg);
-        clip-path: polygon(0 70%, 100% 70%, 100% 88%, 0 88%);
-      }
-
-      58.1% {
-        opacity: 0.85;
-        transform: translateX(18px);
-        clip-path: polygon(0 0%, 100% 0%, 100% 12%, 0 12%);
-      }
-
-      58.5% {
-        opacity: 0;
-      }
-
-      /* burst 3 — short single flash */
-      81% {
-        opacity: 0;
-      }
-
-      81.2% {
-        opacity: 0.65;
-        transform: translateX(-10px) skewX(2deg);
-        clip-path: polygon(0 45%, 100% 45%, 100% 65%, 0 65%);
-      }
-
-      81.5% {
-        opacity: 0;
-      }
-    }
-
-    /* Magenta ghost: offset timing, different slices, rightward bias */
-    @keyframes glitchMagenta {
-
-      0%,
-      100% {
-        opacity: 0;
-      }
-
-      /* burst 1 */
-      20.3% {
-        opacity: 0;
-      }
-
-      20.7% {
-        opacity: 0.7;
-        transform: translateX(10px) skewX(3deg);
-        clip-path: polygon(0 60%, 100% 60%, 100% 80%, 0 80%);
-      }
-
-      21.1% {
-        opacity: 0.55;
-        transform: translateX(-12px) skewX(-4deg);
-        clip-path: polygon(0 25%, 100% 25%, 100% 42%, 0 42%);
-      }
-
-      21.6% {
-        opacity: 0.8;
-        transform: translateX(16px);
-        clip-path: polygon(0 82%, 100% 82%, 100% 100%, 0 100%);
-      }
-
-      22% {
-        opacity: 0;
-      }
-
-      /* burst 2 */
-      57.2% {
-        opacity: 0;
-      }
-
-      57.5% {
-        opacity: 0.75;
-        transform: translateX(-8px) skewX(-2deg);
-        clip-path: polygon(0 10%, 100% 10%, 100% 30%, 0 30%);
-      }
-
-      57.9% {
-        opacity: 0.6;
-        transform: translateX(14px) skewX(5deg);
-        clip-path: polygon(0 50%, 100% 50%, 100% 68%, 0 68%);
-      }
-
-      58.3% {
-        opacity: 0;
-      }
-
-      /* burst 3 */
-      81.1% {
-        opacity: 0;
-      }
-
-      81.4% {
-        opacity: 0.7;
-        transform: translateX(9px) skewX(-3deg);
-        clip-path: polygon(0 75%, 100% 75%, 100% 95%, 0 95%);
-      }
-
-      81.7% {
-        opacity: 0;
-      }
-    }
-
-    /* ── BPM LINE ── */
-    .bpm-line {
-      overflow: hidden;
-      padding: 3vh 0;
-      border-top: 1px solid rgba(255, 255, 255, 0.06);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-      position: relative;
-    }
-
-    .bpm-scroll {
-      display: flex;
-      gap: 4rem;
-      width: max-content;
-      animation: scrollLeft 20s linear infinite;
-    }
-
-    .bpm-scroll span {
-      font-family: 'VT323', monospace;
-      font-size: clamp(1.8rem, 3.5vw, 3rem);
-      letter-spacing: 0.3em;
-      white-space: nowrap;
-      color: rgba(255, 255, 255, 0.06);
-    }
-
-    .bpm-scroll span.accent {
-      color: rgba(255, 34, 0, 0.3);
-    }
-
-    @keyframes scrollLeft {
-      from {
-        transform: translateX(0);
-      }
-
-      to {
-        transform: translateX(-50%);
-      }
-    }
-
-    /* ── PARALLAX containers ── */
-    .parallax-slow {
-      will-change: transform;
-    }
-
-    /* ── NAV ── */
-    nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      padding: 2vh 6vw;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 1000;
-      transition: background 0.4s;
-    }
-
-    nav.scrolled {
-      background: rgba(0, 0, 0, 0.8);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-    }
-
-    .nav-logo {
-      font-family: 'Syncopate', sans-serif;
-      font-weight: 700;
-      font-size: 1.1rem;
-      letter-spacing: 0.15em;
-      color: var(--white);
-      text-decoration: none;
-      opacity: 0;
-      animation: fadeIn 1s 0.2s ease forwards;
-      text-transform: uppercase;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 3rem;
-      list-style: none;
-      opacity: 0;
-      animation: fadeIn 1s 0.4s ease forwards;
-    }
-
-    .nav-links a {
-      font-size: 0.65rem;
-      letter-spacing: 0.35em;
-      text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.5);
-      text-decoration: none;
-      transition: color 0.3s;
-      position: relative;
-    }
-
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      width: 0;
-      height: 1px;
-      background: var(--red);
-      transition: width 0.3s;
-    }
-
-    .nav-links a:hover {
-      color: var(--white);
-    }
-
-    .nav-links a:hover::after {
-      width: 100%;
-    }
-
-    @media (max-width: 768px) {
-      .traits-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      #about {
-        grid-template-columns: 1fr;
-      }
-
-      .perf-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .nav-links {
-        display: none;
-      }
-
-      .hero-name {
-        font-size: clamp(4rem, 18vw, 8rem);
-      }
-    }
+    @media(max-width:700px){.final-thought{padding:6rem var(--pad)}.final-thought::after{background:rgba(16,16,15,.78)}}
+
+    .final-thought blockquote em{position:relative;display:inline-block}
+    .final-thought blockquote em::before,.final-thought blockquote em::after{content:attr(data-text);position:absolute;inset:0;white-space:nowrap;pointer-events:none;opacity:0;animation-duration:3.5s;animation-timing-function:steps(1,end);animation-iteration-count:infinite}
+    .final-thought blockquote em::before{color:#00e5ff;animation-name:glitch-cyan}
+    .final-thought blockquote em::after{color:#ff00aa;animation-name:glitch-magenta}
+    .final-thought.motion-paused em::before,.final-thought.motion-paused em::after{animation-play-state:paused}
+    @media(prefers-reduced-motion:reduce){.final-thought blockquote em::before,.final-thought blockquote em::after{animation:none}}
+
+    /* A clear final invitation, with the email action given its own weight. */
+    .contact{padding-block:clamp(6rem,10vw,10rem)}
+    .contact .section-title{max-width:13ch;font-size:clamp(4.5rem,9vw,9rem);line-height:.88;text-wrap:balance}
+    .contact-bottom{align-items:end;gap:3rem;margin-top:clamp(4rem,8vw,8rem);padding-top:2rem}
+    .contact-bottom p{max-width:30ch;font-size:clamp(1.4rem,2vw,1.8rem)}
+    .contact .contact-action{display:flex;flex-direction:column;gap:1rem;min-width:min(100%,25rem);padding:1.5rem 1.75rem;background:#100b09;color:var(--paper);text-decoration:none;transition:background .25s,color .25s}
+    .contact .contact-action:hover,.contact .contact-action:focus-visible{background:var(--paper);color:#100b09;transform:none}
+    .contact .contact-action:focus-visible{outline:2px solid #100b09;outline-offset:5px}
+    .contact-action-label{display:flex;justify-content:space-between;align-items:center;gap:2rem;font-family:'Barlow Condensed',sans-serif;font-size:2rem;line-height:1;letter-spacing:0;text-transform:none}
+    .contact-action-label svg{width:1.5rem;height:1.5rem;fill:none;stroke:currentColor;stroke-width:1.5;transition:transform .3s cubic-bezier(.16,1,.3,1)}
+    .contact-action:hover svg,.contact-action:focus-visible svg{transform:translate(4px,-4px)}
+    .contact-email{font-size:.7rem;letter-spacing:.04em;overflow-wrap:anywhere;text-transform:none}
+    @media(max-width:700px){.contact .section-title{font-size:clamp(3.8rem,15vw,6rem)}.contact-bottom{align-items:stretch;gap:2.5rem}.contact .contact-action{min-width:0}.contact-action-label{font-size:1.8rem}}
+    @media(prefers-reduced-motion:reduce){.contact-action-label svg{transition:none}}
   </style>
 </head>
-
 <body>
-
-  <!-- Custom cursor -->
-  <div class="cursor" id="cursor"></div>
-  <div class="cursor-ring" id="cursorRing"></div>
-
-  <!-- NAV -->
-  <nav id="navbar">
-    <a href="#" class="nav-logo">TD</a>
-    <ul class="nav-links">
-      <li><a href="#about">Bio</a></li>
-      <li><a href="#sound">Sonido</a></li>
-      <li><a href="#performance">Directo</a></li>
-      <li><a href="#mixes">Mezclas</a></li>
-      <li><a href="#booking">Contacto</a></li>
-    </ul>
-  </nav>
-
-  <!-- HERO -->
-  <section id="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-img"></div>
-    <div class="scanlines"></div>
-
-    <div class="hero-content">
-      <div class="hero-tag">// TECHNO CRUDO / HIPNÓTICO / MADRID</div>
-      <h1 class="hero-name glitch-text" data-text="TOM DRACO">
-        TOM DRACO
-      </h1>
-
-    </div>
-
-    <div class="scroll-hint">DESPLAZAR</div>
-  </section>
-
-  <!-- TICKER -->
-  <div class="bpm-line">
-    <div class="bpm-scroll">
-      <span>TOM DRACO</span>
-      <span class="accent">TECHNO CRUDO</span>
-      <span>HIPNÓTICO</span>
-      <span class="accent">BPM DINÁMICO</span>
-      <span>UNDERGROUND</span>
-      <span class="accent">EMOCIONAL</span>
-      <span>MADRID</span>
-      <span class="accent">EN MOVIMIENTO</span>
-      <span>TOM DRACO</span>
-      <span class="accent">TECHNO CRUDO</span>
-      <span>HIPNÓTICO</span>
-      <span class="accent">BPM DINÁMICO</span>
-      <span>UNDERGROUND</span>
-      <span class="accent">EMOCIONAL</span>
-      <span>MADRID</span>
-      <span class="accent">EN MOVIMIENTO</span>
-    </div>
-  </div>
-
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="about-img-wrap reveal-left">
-      <img src="images/02.jpeg" alt="Tom Draco">
-    </div>
-
-    <div class="about-text">
-      <div class="section-label reveal">BIO</div>
-      <h2 class="about-title reveal delay-1">EL ARTISTA<br>EN MOVIMIENTO</h2>
-      <p class="about-body reveal delay-2">
-        Tom Draco es un DJ centrado en el techno crudo e hipnótico, caracterizado por sets dinámicos donde el tempo y la
-        energía
-        evolucionan constantemente. Sus sesiones funcionan como un viaje en perpetua transformación — moviéndose entre
-        ritmos profundos,
-        tensión mental y momentos de alta intensidad.
-      </p>
-      <p class="about-body reveal delay-3">
-        Influenciado por la tensión hipnótica de Oscar Mulero, la narrativa enérgica de Jeff Mills y la sensibilidad
-        experimental de artistas como Björk y The Chemical Brothers, su sonido explora texturas envolventes, cambios de
-        BPM
-        y progresiones intensas diseñadas para generar una experiencia inmersiva y emocional en la pista.
-      </p>
-      <div class="influences">
-        <div class="influence-item reveal delay-2">Oscar Mulero — Tensión Hipnótica</div>
-        <div class="influence-item reveal delay-3">Jeff Mills — Narrativa Enérgica</div>
-        <div class="influence-item reveal delay-4">Björk — Sensibilidad Experimental</div>
-        <div class="influence-item reveal delay-5">The Chemical Brothers — Arquitectura Emocional</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SOUND -->
-  <section id="sound">
-    <div class="sound-header">
-      <div class="section-label reveal" style="justify-content:center">IDENTIDAD SONORA</div>
-      <h2 class="big-title reveal">DISEÑO</h2>
-      <h2 class="big-title outline reveal delay-1">SONORO</h2>
-    </div>
-
-    <div class="traits-grid">
-      <div class="trait reveal delay-1">
-        <span class="trait-num">01</span>
-        <span class="trait-name">HIPNÓTICO</span>
-        <p class="trait-desc">Texturas envolventes que construyen un estado de trance. Cada elemento diseñado para
-          sumergir al
-          oyente más profundamente en el espacio sonoro.</p>
-      </div>
-      <div class="trait reveal delay-2">
-        <span class="trait-num">02</span>
-        <span class="trait-name">DINÁMICO</span>
-        <p class="trait-desc">Evolución constante de BPM entre 130–170 BPM. La energía respira, sube y se libera en un
-          flujo orgánico.</p>
-      </div>
-      <div class="trait reveal delay-3">
-        <span class="trait-num">03</span>
-        <span class="trait-name">EMOCIONAL</span>
-        <p class="trait-desc">Más allá de la estructura — las sesiones buscan estados de inmersión, contraste y
-          liberación emocional
-          que trascienden las formas lineales.</p>
-      </div>
-      <div class="trait reveal delay-4">
-        <span class="trait-num">04</span>
-        <span class="trait-name">TENSIÓN</span>
-        <p class="trait-desc">Presión mental construida a través del groove, la textura y el ritmo. La pista de baile
-          como un lugar de
-          liberación y catarsis.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- PERFORMANCE -->
-  <section id="performance">
-    <div class="section-label reveal">DIRECTO</div>
-    <h2 class="big-title reveal delay-1">EL SET COMO<br><span
-        style="-webkit-text-stroke:1px rgba(255,255,255,0.12);color:transparent;">NARRATIVA</span></h2>
-
-    <div class="perf-grid" style="margin-top: 6vh;">
-      <div class="perf-img reveal-left">
-        <img src="images/03.jpeg" alt="Tom Draco performing">
-        <div class="perf-img-overlay"></div>
-      </div>
-
-      <div class="perf-info">
-        <div class="perf-point reveal delay-1">
-          <h3>Espacios Underground</h3>
-          <p>Sets diseñados para clubes underground, espacios inmersivos y eventos centrados en el techno. La
-            arquitectura de la
-            sala moldea la sesión.</p>
-        </div>
-        <div class="perf-point reveal delay-2">
-          <h3>Warm-Up y Construcción</h3>
-          <p>Especializado en warm-up y construcción progresiva de energía, adaptando el sonido al contexto del espacio
-            y el flujo de la noche.</p>
-        </div>
-        <div class="perf-point reveal delay-3">
-          <h3>Formatos</h3>
-          <p>Warm-up / Opening Set / Club Set. Cada formato tiene un propósito distinto en el desarrollo de la noche.
-          </p>
-        </div>
-        <div class="perf-point reveal delay-4">
-          <h3>Dinámicas de Tempo Orgánicas</h3>
-          <p>La evolución constante del tempo crea experiencias más orgánicas, hipnóticas y cambiantes en la pista de
-            baile —
-            nunca el mismo viaje dos veces.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- MIXES -->
-  <section id="mixes">
-    <div class="section-label reveal">MEZCLAS</div>
-    <h2 class="big-title reveal delay-1">ESCUCHAR</h2>
-
-    <div class="sc-embed-wrap">
-      <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay; encrypted-media"
-        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2170481607&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
-      <div
-        style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;">
-        <a href="https://soundcloud.com/tomdracodj" title="Tom Draco" target="_blank"
-          style="color: #cccccc; text-decoration: none;">Tom Draco</a> · <a
-          href="https://soundcloud.com/tomdracodj/dj-set-under-my-skin" title="Dj set - Under The Skin" target="_blank"
-          style="color: #cccccc; text-decoration: none;">Dj set - Under The Skin</a></div>
-    </div>
-
-    <div class="sc-embed-wrap">
-      <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay; encrypted-media"
-        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2170487130&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
-      <div
-        style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;">
-        <a href="https://soundcloud.com/tomdracodj" title="Tom Draco" target="_blank"
-          style="color: #cccccc; text-decoration: none;">Tom Draco</a> · <a
-          href="https://soundcloud.com/tomdracodj/dj-set-annihilation" title="Dj set - Annihilation" target="_blank"
-          style="color: #cccccc; text-decoration: none;">Dj set - Annihilation</a></div>
-    </div>
-
-    <div class="sc-cta reveal delay-4" style="margin-top: 4vh;">
-      <a href="https://soundcloud.com/Tomdracodj" target="_blank" rel="noopener" class="btn-primary">
-        <span>Todas las Mezclas en SoundCloud →</span>
-      </a>
-    </div>
-  </section>
-
-  <!-- BOOKING -->
-  <section id="booking">
-    <div class="booking-bg"></div>
-    <div class="section-label reveal" style="justify-content:center">CONTACTO</div>
-    <h2 class="hero-name glitch-text small" data-text="RESERVAR A TOM DRACO">
-      RESERVAR A TOM DRACO
-    </h2>
-
-    <div class="booking-info reveal delay-2">
-      <div class="booking-item">
-        <label>Ubicación</label>
-        <span>Madrid, España</span>
-      </div>
-      <div class="booking-item">
-        <label>Formatos</label>
-        <span>Warm-up / Opening / Club Set</span>
-      </div>
-      <div class="booking-item">
-        <label>Género</label>
-        <span>Techno Crudo / Hipnótico</span>
-      </div>
-      <div class="booking-item">
-        <label>Rango de BPM</label>
-        <span>130 – 170 BPM</span>
-      </div>
-    </div>
-
-    <div class="reveal delay-3" style="display:flex; gap:1.5rem; justify-content:center; flex-wrap:wrap;">
-      <a href="mailto:tomdracodjd@gmail.com" class="btn-primary"><span>Reservas por Email</span></a>
-      <a href="https://wa.me/34603658615?text=Te%20estoy%20contactando%20a%20trav%C3%A9s%20del%20sitio%20web%20de%20Tom%20Draco"
-        target="_blank" rel="noopener" class="btn-primary"><span
-          style="display:inline-flex; align-items:center; gap:0.5rem;"><svg width="16" height="16" viewBox="0 0 24 24"
-            fill="currentColor">
-            <path
-              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
-          </svg>Contactar por Whatsapp</span></a>
-      <a href="https://www.instagram.com/Tomdracodj" target="_blank" rel="noopener" class="btn-primary"
-        style="border-color:rgba(255,255,255,0.2); color:rgba(255,255,255,0.6);"><span>Instagram</span></a>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="social-links">
-      <a href="https://soundcloud.com/Tomdracodj" target="_blank" rel="noopener">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-          <path
-            d="M1.175 12.225c-.15 0-.25.1-.25.25l-.357 2.254.357 2.178c0 .15.1.25.25.25s.25-.1.25-.25l.4-2.178-.4-2.254c0-.15-.1-.25-.25-.25zm1.89-.524c-.175 0-.312.137-.312.312l-.313 2.466.313 2.328c0 .175.137.312.312.312s.313-.137.313-.312l.362-2.328-.362-2.466c0-.175-.138-.312-.313-.312zm1.924-.386c-.2 0-.362.162-.362.362l-.274 2.852.274 2.49c0 .2.162.362.362.362s.362-.162.362-.362l.313-2.49-.313-2.852c0-.2-.162-.362-.362-.362zm1.924-.1c-.225 0-.412.187-.412.412l-.238 2.952.238 2.64c0 .225.187.412.412.412s.412-.187.412-.412l.275-2.64-.275-2.952c0-.225-.187-.412-.412-.412zM8.9 8.524c-.25 0-.45.2-.45.45l-.2 3.364.2 2.778c0 .25.2.45.45.45s.45-.2.45-.45l.225-2.778-.225-3.364c0-.25-.2-.45-.45-.45zm1.924-.762c-.275 0-.5.225-.5.5l-.163 3.602.163 2.916c0 .275.225.5.5.5s.5-.225.5-.5l.188-2.916-.188-3.602c0-.275-.225-.5-.5-.5zm1.961-.288c-.3 0-.537.237-.537.537l-.125 3.652.125 3.004c0 .3.237.537.537.537s.537-.237.537-.537l.15-3.004-.15-3.652c0-.3-.237-.537-.537-.537zm1.962.025c-.325 0-.587.262-.587.587l-.1 3.627.1 3.054c0 .325.262.587.587.587s.587-.262.587-.587l.113-3.054-.113-3.627c0-.325-.262-.587-.587-.587zm1.986-.274c-.35 0-.637.287-.637.637l-.076 3.901.076 3.079c0 .35.287.637.637.637s.637-.287.637-.637l.088-3.079-.088-3.901c0-.35-.287-.637-.637-.637zm2-.226c-.375 0-.675.3-.675.675l-.05 4.127.05 3.104c0 .375.3.675.675.675s.675-.3.675-.675l.063-3.104-.063-4.127c0-.375-.3-.675-.675-.675zm2.012-.1c-.4 0-.712.312-.712.712l-.025 4.227.025 3.129c0 .4.312.712.712.712s.712-.312.712-.712l.038-3.129-.038-4.227c0-.4-.312-.712-.712-.712zm2.05-.5c-.425 0-.762.337-.762.762l0 7.956c0 .425.337.762.762.762h.001c2.088 0 3.775-1.688 3.775-3.775 0-2.088-1.687-3.775-3.775-3.775l-.001.07z" />
-        </svg>
-        SoundCloud
-      </a>
-      <a href="https://www.instagram.com/Tomdracodj" target="_blank" rel="noopener">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-          <path
-            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-        </svg>
-        Instagram
-      </a>
-      <a href="mailto:tomdracodjd@gmail.com">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-          <path
-            d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
-        </svg>
-        Email
-      </a>
-    </div>
-    <div class="footer-copy">© 2026 TOM DRACO — MADRID</div>
-  </footer>
-
+  <a class="skip-link" href="#top">Skip to content</a>
+  <nav class="site-nav" aria-label="Main navigation"><a class="brand" href="#top">TOM DRACO</a><div class="nav-links"><a href="#about">About</a><a href="#work">Work</a><a href="#contact">Contact</a></div><button class="menu-trigger" type="button" aria-haspopup="dialog" aria-controls="mobile-menu" aria-expanded="false">Menu <span class="menu-icon" aria-hidden="true"></span></button></nav>
+  <dialog class="mobile-menu" id="mobile-menu" aria-label="Navigation menu"><div class="menu-inner"><div class="menu-top"><span class="brand">TOM DRACO</span><button class="menu-close" type="button" aria-label="Close navigation menu">Close <span aria-hidden="true">×</span></button></div><nav class="menu-main" aria-label="Mobile navigation"><a href="#about">About</a><a href="#work">Work</a><a href="#contact">Contact</a></nav><div class="menu-bottom"><span>Music · Sound · Image<br>Madrid, Spain</span><a href="mailto:tomdracodjd@gmail.com">Get in touch ↗</a></div></div></dialog>
+  <main id="top">
+    <header class="hero"><div class="hero-content"><h1 data-text="TOM DRACO" aria-label="Tom Draco">TOM DRACO</h1><div class="hero-bottom"><p>Music, sound and ideas<br>with character.</p><a class="hero-action" href="#work">Explore selected work <span aria-hidden="true">↓</span></a><div class="meta">Producer · Composer · Sound designer<br>Madrid, Spain</div></div></div></header>
+    <section class="intro wrap" id="about"><h2 class="section-title">Sound with intention.</h2><div><p class="lead">I’m a music producer, composer and sound designer based in Madrid.</p><div class="copy"><p>I work across a wide range of musical styles, from indie pop and alternative rock to electronic music, house and techno.</p><p>My approach to music production goes beyond sound. I’m interested in the creative process behind each project: developing concepts, shaping musical identities, exploring textures and translating ideas and emotions into fully realized compositions.</p><p>Working independently, I take projects from their earliest stages to their final form, combining songwriting, composition, arrangement, sound design, recording, vocal production, mixing and mastering.</p><p>My work is driven by curiosity and a constant interest in exploring different sonic languages. Whether building an atmospheric pop production, developing an electronic composition or creating a distinctive sound world from scratch, my focus remains the same: making music with character, intention and identity.</p></div><a class="text-link link" href="#contact">Let’s collaborate ↗</a></div></section>
+    <section id="work" class="wrap"><div class="work-head"><h2 class="section-title">Selected<br>work</h2><p>Music as a place to explore identity, image and emotion.</p></div><div class="work-index" aria-label="Explore projects"><a href="#cielos">Cielos <span aria-hidden="true">↘</span></a><a href="#solar">Solar <span aria-hidden="true">↘</span></a><a href="#landscapes">Landscapes translated <span aria-hidden="true">↘</span></a></div>
+      <article class="project" id="cielos"><div class="project-header"><h2 class="project-title">Cielos</h2><p class="project-sub"><strong>Tom Draco · Audiovisual experience</strong>An unofficial techno rework of “La Yugular” by Rosalía.</p></div><div class="project-grid"><div><div class="video-block"><div class="video"><iframe src="https://www.youtube-nocookie.com/embed/iuSwUMlXmo4" title="Cielos" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div><a class="video-fallback" href="https://www.youtube.com/watch?v=iuSwUMlXmo4" target="_blank" rel="noopener">Watch Cielos on YouTube ↗</a></div><p class="caption mono">A project by Tom Draco · DJ · Producer · Audiovisual Artist</p></div><div class="project-copy"><p class="lead">A hypnotic techno experience built from fragments of the familiar.</p><p>Cielos explores repetition, tension and vocal manipulation. Driving rhythms, dark atmospheres and an evolving sonic structure reshape elements of the original into something raw, immersive and unexpected.</p><h3>Image in motion.<br>Sound in control.</h3><p>The visual artwork and music-reactive video were created entirely in TouchDesigner by Tom Draco. Visual elements respond to selected frequency ranges in real time: low frequencies trigger movement and transformations, while mid and low-mid frequencies influence other components. Image and sound evolve together.</p><p class="credits">Unofficial remix. Not affiliated with or endorsed by the original artists or rights holders.</p></div></div></article>
+      <article class="project" id="solar"><div class="project-header"><h2 class="project-title">Solar</h2><p class="project-sub"><strong>Conceptual electronic music project</strong>Five chapters exploring migration, identity, excess, forgiveness, freedom and presence.</p></div><div class="project-grid"><div class="solar-art" role="img" aria-label="Tom Draco performing in red light"><span>SOLAR</span></div><div class="project-copy"><p class="lead">A journey from carrying the light, to rejecting it, to becoming it.</p><p>SOLAR is a five-chapter electronic music project exploring personal transformation through the experience of leaving South America and arriving in Europe. It uses that journey as the starting point for a deeper emotional narrative about identity, expectations, disorientation, excess, forgiveness and self-reconciliation.</p><div class="sequence"><span>Leaving →</span><span>Arriving →</span><span>Losing oneself →</span><span>Becoming free →</span><span>Staying</span></div><p>Reaching the place you once dreamed of does not necessarily mean finding peace. Transformation begins when you learn to reconcile with your past and embrace the present.</p><details><summary>Explore the five chapters</summary><div class="detail-content"><h4>01. DEJO / LLEVO – The Departure</h4><p>An organic and atmospheric introduction built around Latin American percussion, memory and the decision to leave. Aviation-related sound design marks the transition into a new life.</p><h4>02. 2 BIG – The Arrival</h4><p>The excitement of a new environment becomes overwhelming. House evolves into darker, faster techno, translating overstimulation into musical progression.</p><h4>03. FORGET / FORGIVE – The Darkness</h4><p>House, techno and jazz explore nightlife, excess and emotional escapism. The recurring phrase introduces a turn from avoidance towards reconciliation.</p><h4>04. FREE – Liberation</h4><p>A house production with references to Spanish Holy Week processions: deep drums, snare rolls and brass. Different cultural identities integrate, making room to become someone new without abandoning the past.</p><h4>05. AQUÍ / AHORA – Presence</h4><p>Through repetition and a more peaceful atmosphere, the final chapter moves towards acceptance and embracing the present.</p></div></details><details><summary>Concept, sound & credits</summary><div class="detail-content"><h4>Musical direction</h4><p>House, techno and experimental electronic elements meet organic Latin American percussion, electronic textures, synthesizer programming, jazz-influenced rhythms and Spanish brass and percussion. Dynamic transitions and evolving arrangements bring these influences into one musical journey.</p><h4>Creative concept</h4><p>The sun represents origin, memory and cultural identity, then becomes something the protagonist rejects. By the end, it is no longer something to carry or search for, but something that exists within. This progression informs the sound selection, arrangements and structure.</p><p>Each track contributes to a larger emotional and sonic narrative, where genres, instrumentation, sound design and lyrics evolve together. SOLAR explores how cultural identity can be transformed rather than replaced, and how music can communicate beyond words.</p><h4>Credits & production</h4><p>Written, composed, arranged, produced, recorded, mixed and mastered by Tomás Eduardo Ramones Corona. Concept development, creative and artistic direction, songwriting and lyrics, sound design, instrument programming, electronic production, vocal production and processing. Produced entirely independently in Ableton Live 12 Suite.</p></div></details></div></div></article>
+      <article class="project" id="landscapes"><div class="project-header"><h2 class="project-title">Landscapes<br>translated</h2><p class="project-sub"><strong>Image, perception and sound</strong>Three sound compositions based on images by photographer Jon Cazenave.</p></div><div class="landscape-intro"><p class="lead">What happens when an image stops being looked at and begins to be heard?</p><div class="copy"><p>Each image is approached as a visual score: a field of colours, textures, densities, shapes and spatial relationships interpreted through sound. Reading the images from left to right, I translate their visual elements into sonic behaviours, exploring how movement, rhythm, texture and space can emerge from what we see.</p><p>The intention is not to reproduce the sounds of nature or create literal sound effects. The process begins with a subjective perception of each image, translating its visual qualities into another medium.</p><p>The project connects with questions explored in Cazenave’s <em>Soilscapes</em>: how images shape our understanding of nature, how cultural codes influence perception, and whether a landscape exists before it is represented. Through sound, I explore not what these images depict, but what they make us feel.</p></div></div><div class="landscape-list">
+        <div class="landscape-item"><div><span class="chapter-number">01</span><h3>OMAJI</h3><p>A vertical landscape in constant transformation. Delicate textures and gradual sonic movements evoke matter appearing, dissolving and re-emerging in a suspended environment.</p></div><div class="video-block"><div class="video"><iframe src="https://www.youtube-nocookie.com/embed/kHIzwmHm3QM" title="OMAJI" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div><a class="video-fallback" href="https://www.youtube.com/watch?v=kHIzwmHm3QM" target="_blank" rel="noopener">Watch OMAJI on YouTube ↗</a></div></div>
+        <div class="landscape-item"><div><span class="chapter-number">02</span><h3>RAPPRESENTAZIONI DI 1 VULCANO</h3><p><em>Schizzi per Una crepa nel paesaggio</em></p><p>Contrasting forms and densities suggest warm, viscous matter slowly cooling. Smooth, continuous layers explore the space between movement and stillness.</p></div><div class="video-block"><div class="video"><iframe src="https://www.youtube-nocookie.com/embed/79xUr_evwKs" title="Rappresentazioni di 1 Vulcano" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div><a class="video-fallback" href="https://www.youtube.com/watch?v=79xUr_evwKs" target="_blank" rel="noopener">Watch Rappresentazioni di 1 Vulcano on YouTube ↗</a></div></div>
+        <div class="landscape-item"><div><span class="chapter-number">03</span><h3>UNA CREPA NEL PAESAGGIO</h3><p>A fluid, organic surface meets a rougher mineral texture. The composition follows that transition, introducing irregularities and fragmented layers as continuity gives way to rupture.</p></div><div class="video-block"><div class="video"><iframe src="https://www.youtube-nocookie.com/embed/D6m7mjxIOAo" title="Una Crepa nel Paesaggio" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div><a class="video-fallback" href="https://www.youtube.com/watch?v=D6m7mjxIOAo" target="_blank" rel="noopener">Watch Una Crepa nel Paesaggio on YouTube ↗</a></div></div>
+      </div><div class="final-thought"><blockquote>Can a landscape be experienced differently when we change <em data-text="the language">the language</em> through which we encounter it?</blockquote><div><p>These compositions move from visual perception towards personal interpretation. Rather than establishing a fixed correspondence between image and sound, they explore how changing the language through which we experience a landscape can change the way we perceive it.</p><p class="credits">Photography: <a href="https://joncazenave.com/" target="_blank" rel="noopener">Jon Cazenave ↗</a><br>Sound composition & music production: Tom Draco</p></div></div></article>
+    </section>
+    <section class="contact wrap" id="contact"><h2 class="section-title">Let’s make something resonate.</h2><div class="contact-bottom"><p>For original music, music production and sound design projects with artists, filmmakers, creative studios and brands.</p><a class="contact-action" href="mailto:tomdracodjd@gmail.com"><span class="contact-action-label">Get in touch <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 19 19 5M7 5h12v12"/></svg></span><span class="contact-email">tomdracodjd@gmail.com</span></a></div></section>
+  </main><footer class="wrap"><a class="brand" href="#top">TOM DRACO</a><div class="mono"><span>Madrid, Spain</span><a href="https://www.instagram.com/Tomdracodj" target="_blank" rel="noopener">Instagram ↗</a><a href="https://soundcloud.com/Tomdracodj" target="_blank" rel="noopener">SoundCloud ↗</a></div></footer>
   <script>
-    // Custom cursor
-    const cursor = document.getElementById('cursor');
-    const ring = document.getElementById('cursorRing');
-    let mx = 0, my = 0, rx = 0, ry = 0;
-    document.addEventListener('mousemove', e => {
-      mx = e.clientX; my = e.clientY;
-      cursor.style.left = mx + 'px';
-      cursor.style.top = my + 'px';
+    // Present the film with site artwork until the visitor chooses playback.
+    document.querySelectorAll('.video iframe').forEach(frame => {
+      const id = new URL(frame.src).pathname.split('/').pop();
+      const button = document.createElement('button');
+      button.className = 'video-poster';
+      button.type = 'button';
+      button.setAttribute('aria-label', `Play ${frame.title}`);
+      const thumbnail = document.createElement('img');
+      thumbnail.src = `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
+      thumbnail.alt = '';
+      thumbnail.loading = 'lazy';
+      button.append(thumbnail);
+      button.insertAdjacentHTML('beforeend', '<span class="video-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 2v20l16-10z"/></svg></span><span class="video-poster-label" aria-hidden="true">Play film</span>');
+      frame.hidden = true;
+      frame.parentElement.append(button);
+      button.addEventListener('click', () => {
+        frame.src += '?autoplay=1&playsinline=1';
+        frame.hidden = false;
+        button.remove();
+        frame.focus();
+      });
     });
-    function animRing() {
-      rx += (mx - rx) * 0.12;
-      ry += (my - ry) * 0.12;
-      ring.style.left = rx + 'px';
-      ring.style.top = ry + 'px';
-      requestAnimationFrame(animRing);
+    const menu = document.querySelector('#mobile-menu');
+    const menuTrigger = document.querySelector('.menu-trigger');
+    const menuClose = document.querySelector('.menu-close');
+    if (typeof menu.showModal === 'function') {
+      document.documentElement.classList.add('js-menu');
+      menuTrigger.addEventListener('click', () => {
+        menu.showModal();
+        document.body.classList.add('menu-open');
+        menuTrigger.setAttribute('aria-expanded', 'true');
+        menuClose.focus();
+      });
+      menuClose.addEventListener('click', () => menu.close());
+      menu.addEventListener('click', event => {
+        if (event.target.closest('a')) menu.close();
+      });
+      menu.addEventListener('close', () => {
+        document.body.classList.remove('menu-open');
+        menuTrigger.setAttribute('aria-expanded', 'false');
+      });
+      window.matchMedia('(min-width: 701px)').addEventListener('change', event => {
+        if (event.matches && menu.open) menu.close();
+      });
     }
-    animRing();
-    document.querySelectorAll('a, button, .trait, .sc-track').forEach(el => {
-      el.addEventListener('mouseenter', () => { cursor.style.background = 'transparent'; ring.style.width = '56px'; ring.style.height = '56px'; ring.style.borderColor = 'rgba(255,34,0,0.7)'; });
-      el.addEventListener('mouseleave', () => { cursor.style.background = 'var(--red)'; ring.style.width = '36px'; ring.style.height = '36px'; ring.style.borderColor = 'rgba(255,34,0,0.5)'; });
-    });
-
-    // Navbar scroll
-    const nav = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 80);
-    });
-
-    // Reveal on scroll
-    const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) e.target.classList.add('active');
+    // The page remains readable if scripting or motion is unavailable.
+    const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if ('IntersectionObserver' in window && !motionPreference.matches) {
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          const isMedia = entry.target.matches('.video, .solar-art');
+          entry.target.animate(isMedia ? [
+            { clipPath: 'inset(0 0 12% 0)', opacity: .8 },
+            { clipPath: 'inset(0 0 0 0)', opacity: 1 }
+          ] : [
+            { transform: 'translateY(18px)', opacity: .7 },
+            { transform: 'translateY(0)', opacity: 1 }
+          ], { duration: 850, easing: 'cubic-bezier(.16, 1, .3, 1)' });
+          observer.unobserve(entry.target);
+        });
+      }, { threshold: .15 });
+      document.querySelectorAll('.project-title, .video, .solar-art').forEach(item => revealObserver.observe(item));
+      motionPreference.addEventListener('change', event => {
+        if (event.matches) {
+          revealObserver.disconnect();
+          document.getAnimations().forEach(animation => animation.cancel());
+        }
       });
-    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
-    revealEls.forEach(el => observer.observe(el));
-
-    // Parallax on scroll
-    window.addEventListener('scroll', () => {
-      const sy = window.scrollY;
-      document.querySelectorAll('.hero-img').forEach(el => {
-        el.style.transform = `translateY(${sy * 0.3}px) scale(1)`;
+    }
+    // Animate when each part actually enters the viewport; replay on a return visit.
+    const coda = document.querySelector('.final-thought');
+    if ('IntersectionObserver' in window && typeof Element.prototype.animate === 'function') {
+      const codaObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting || motionPreference.matches) return;
+          const isQuestion = entry.target.tagName === 'BLOCKQUOTE';
+          entry.target.getAnimations().forEach(animation => animation.cancel());
+          entry.target.animate(isQuestion ? [
+            { transform: 'translateY(80px)', opacity: .35, filter: 'blur(6px)' },
+            { transform: 'translateY(0)', opacity: 1, filter: 'blur(0)' }
+          ] : [
+            { transform: 'translateY(50px)', opacity: .4 },
+            { transform: 'translateY(0)', opacity: 1 }
+          ], { duration: 1400, easing: 'cubic-bezier(.16, 1, .3, 1)' });
+        });
+      }, { threshold: .1 });
+      codaObserver.observe(coda.querySelector('blockquote'));
+      codaObserver.observe(coda.querySelector(':scope > div'));
+      motionPreference.addEventListener('change', event => {
+        if (event.matches) coda.querySelectorAll('blockquote, :scope > div').forEach(part => part.getAnimations().forEach(animation => animation.cancel()));
       });
-    });
+    }
+    if ('IntersectionObserver' in window) {
+      let codaVisible = false;
+      const updateCodaGlitch = () => coda.classList.toggle('motion-paused', !codaVisible || document.hidden);
+      new IntersectionObserver(entries => {
+        codaVisible = entries[0].isIntersecting;
+        updateCodaGlitch();
+      }).observe(coda);
+      document.addEventListener('visibilitychange', updateCodaGlitch);
+      updateCodaGlitch();
+    }
+    const hero = document.querySelector('.hero');
+    if ('IntersectionObserver' in window) {
+      let heroVisible = true;
+      const updateMotion = () => hero.classList.toggle('motion-paused', !heroVisible || document.hidden);
+      new IntersectionObserver(entries => {
+        heroVisible = entries[0].isIntersecting;
+        updateMotion();
+      }).observe(hero);
+      document.addEventListener('visibilitychange', updateMotion);
+    }
   </script>
 </body>
-
 </html>
