@@ -1,0 +1,1563 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-864T9GQHP4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-864T9GQHP4');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TOM DRACO — RAW / HYPNOTIC TECHNO</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=VT323&family=Share+Tech+Mono&family=Barlow+Condensed:wght@300;400;500;700&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --black: #000000;
+      --deep: #050505;
+      --red: #ff2200;
+      --orange: #ff6600;
+      --magenta: #cc00ff;
+      --pink: #ff00aa;
+      --cyan: #00e5ff;
+      --gold: #ffaa00;
+      --white: #f0ece4;
+      --dim: rgba(240, 236, 228, 0.55);
+    }
+
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'Share Tech Mono', monospace;
+      /* VT323 = pixel/bitmap headers like PDF section labels
+       Syncopate = wide spaced caps like TOM DRACO logo in PDF
+       Barlow Condensed = clean condensed body paragraphs
+       Share Tech Mono = monospaced technical text */
+      overflow-x: hidden;
+      cursor: crosshair;
+    }
+
+    /* ── NOISE OVERLAY ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.35;
+      mix-blend-mode: overlay;
+    }
+
+    /* ── CURSOR ── */
+    .cursor {
+      position: fixed;
+      width: 8px;
+      height: 8px;
+      background: var(--red);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 99999;
+      transform: translate(-50%, -50%);
+      transition: background 0.2s;
+      mix-blend-mode: difference;
+    }
+
+    .cursor-ring {
+      position: fixed;
+      width: 36px;
+      height: 36px;
+      border: 1px solid rgba(255, 34, 0, 0.5);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 99998;
+      transform: translate(-50%, -50%);
+      transition: all 0.12s ease;
+    }
+
+    /* ── HERO ── */
+    #hero {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 0 6vw 8vh;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 70% at 60% 40%, rgba(204, 0, 255, 0.12) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 60% at 30% 60%, rgba(255, 34, 0, 0.10) 0%, transparent 60%),
+        var(--black);
+    }
+
+    /* Big photo fills hero */
+    .hero-img {
+      position: absolute;
+      inset: 0;
+      background: url('images/01.jpeg') center/cover no-repeat;
+      opacity: 0;
+      animation: heroReveal 2s 0.4s ease forwards;
+      filter: saturate(1.2) contrast(1.1);
+    }
+
+    .hero-img::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%);
+    }
+
+    @keyframes heroReveal {
+      from {
+        opacity: 0;
+        transform: scale(1.05);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    /* Scanlines */
+    .scanlines {
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(to bottom,
+          transparent 0px,
+          transparent 3px,
+          rgba(0, 0, 0, 0.08) 3px,
+          rgba(0, 0, 0, 0.08) 4px);
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 10;
+    }
+
+    .hero-tag {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: clamp(0.6rem, 1vw, 0.75rem);
+      letter-spacing: 0.35em;
+      color: var(--red);
+      text-transform: uppercase;
+      opacity: 0;
+      animation: fadeUp 0.8s 1s ease forwards;
+      margin-bottom: 1rem;
+    }
+
+    .hero-name {
+      font-family: 'VT323', monospace;
+      font-weight: 400;
+      font-size: clamp(5rem, 16vw, 18rem);
+      line-height: 0.88;
+      letter-spacing: 0.06em;
+      opacity: 0;
+      animation: fadeUp 1s 1.2s ease forwards;
+      color: var(--white);
+      text-transform: uppercase;
+      text-shadow:
+        0 0 20px rgba(255, 34, 0, 0.45),
+        0 0 60px rgba(255, 34, 0, 0.2),
+        0 0 120px rgba(255, 34, 0, 0.08);
+    }
+
+    .hero-name span {
+      display: block;
+      font-family: 'VT323', monospace;
+      -webkit-text-stroke: 1px rgba(255, 255, 255, 0.22);
+      color: transparent;
+      font-size: clamp(1.4rem, 4vw, 5rem);
+      letter-spacing: 0.55em;
+      text-shadow: none;
+    }
+
+    .hero-name.small {
+      font-size: clamp(4rem, 12vw, 14rem);
+    }
+
+    .hero-sub {
+      font-size: clamp(0.7rem, 1.2vw, 0.9rem);
+      letter-spacing: 0.5em;
+      color: var(--dim);
+      opacity: 0;
+      animation: fadeUp 0.8s 1.5s ease forwards;
+      margin-top: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .bpm-badges {
+      display: flex;
+      gap: 0.75rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 1.8s ease forwards;
+      margin-top: 1.5rem;
+    }
+
+    .badge {
+      border: 1px solid rgba(255, 34, 0, 0.4);
+      padding: 0.3em 1em;
+      font-size: 0.7rem;
+      letter-spacing: 0.3em;
+      color: var(--red);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .badge::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(255, 34, 0, 0.06);
+    }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 3vh;
+      right: 6vw;
+      font-size: 0.65rem;
+      letter-spacing: 0.3em;
+      color: rgba(255, 255, 255, 0.3);
+      z-index: 10;
+      opacity: 0;
+      animation: fadeIn 1s 2.2s ease forwards;
+      writing-mode: vertical-rl;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .scroll-hint::before {
+      content: '';
+      width: 1px;
+      height: 60px;
+      background: linear-gradient(to bottom, transparent, rgba(255, 34, 0, 0.6));
+      display: block;
+      animation: lineGrow 1.5s 2.5s ease forwards;
+      transform-origin: top;
+      transform: scaleY(0);
+    }
+
+    @keyframes lineGrow {
+      to {
+        transform: scaleY(1);
+      }
+    }
+
+    /* ── ABOUT ── */
+    #about {
+      padding: 12vh 6vw;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8vw;
+      align-items: center;
+      position: relative;
+    }
+
+    .about-img-wrap {
+      position: relative;
+      aspect-ratio: 1;
+      overflow: hidden;
+    }
+
+    .about-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(0.8) contrast(1.2);
+      transform: scale(1.1);
+      transition: transform 8s ease;
+    }
+
+    .about-img-wrap:hover img {
+      transform: scale(1);
+    }
+
+    .about-img-wrap::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border: 1px solid rgba(255, 34, 0, 0.2);
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .img-glitch {
+      position: absolute;
+      inset: 0;
+      background: inherit;
+      mix-blend-mode: screen;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .about-text {
+      position: relative;
+    }
+
+    .section-label {
+      font-family: 'VT323', monospace;
+      font-size: 1.1rem;
+      letter-spacing: 0.4em;
+      color: var(--red);
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .section-label::before {
+      content: '';
+      width: 40px;
+      height: 1px;
+      background: var(--red);
+      display: block;
+    }
+
+    .about-title {
+      font-family: 'Syncopate', sans-serif;
+      font-weight: 700;
+      font-size: clamp(2rem, 3.5vw, 3.5rem);
+      line-height: 1.1;
+      margin-bottom: 2rem;
+      color: var(--white);
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+
+    .about-body {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 300;
+      font-size: 1rem;
+      line-height: 1.9;
+      color: var(--dim);
+      margin-bottom: 2rem;
+      letter-spacing: 0.03em;
+    }
+
+    .influences {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-top: 2rem;
+    }
+
+    .influence-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      color: rgba(255, 255, 255, 0.4);
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      transition: color 0.3s;
+    }
+
+    .influence-item::before {
+      content: '→';
+      color: var(--red);
+      font-size: 0.8rem;
+    }
+
+    .influence-item:hover {
+      color: var(--white);
+    }
+
+    /* ── SOUND SECTION ── */
+    #sound {
+      padding: 12vh 6vw;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .sound-header {
+      text-align: center;
+      margin-bottom: 8vh;
+      position: relative;
+      z-index: 2;
+    }
+
+    .big-title {
+      font-family: 'Syncopate', sans-serif;
+      font-weight: 700;
+      font-size: clamp(3rem, 9vw, 9rem);
+      line-height: 1;
+      letter-spacing: 0.04em;
+      color: var(--white);
+      text-transform: uppercase;
+      position: relative;
+    }
+
+    .big-title.outline {
+      -webkit-text-stroke: 1px rgba(255, 255, 255, 0.15);
+      color: transparent;
+    }
+
+    .traits-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+      margin-bottom: 8vh;
+      position: relative;
+      z-index: 2;
+    }
+
+    .trait {
+      padding: 4vh 2vw;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.4s;
+      cursor: default;
+    }
+
+    .trait:hover {
+      border-color: rgba(255, 34, 0, 0.3);
+    }
+
+    .trait::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 0;
+      background: rgba(255, 34, 0, 0.05);
+      transition: height 0.4s;
+    }
+
+    .trait:hover::before {
+      height: 100%;
+    }
+
+    .trait-num {
+      font-size: 0.6rem;
+      letter-spacing: 0.3em;
+      color: rgba(255, 34, 0, 0.5);
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+
+    .trait-name {
+      font-family: 'VT323', monospace;
+      font-size: clamp(2.2rem, 3.5vw, 3.8rem);
+      letter-spacing: 0.08em;
+      display: block;
+      margin-bottom: 1rem;
+      line-height: 1;
+    }
+
+    .trait-desc {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 300;
+      font-size: 0.85rem;
+      line-height: 1.8;
+      color: var(--dim);
+      letter-spacing: 0.02em;
+    }
+
+    /* ── PERFORMANCE SECTION ── */
+    #performance {
+      padding: 12vh 6vw;
+      position: relative;
+    }
+
+    .perf-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4vw;
+      margin-top: 6vh;
+    }
+
+    .perf-img {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .perf-img img {
+      width: 100%;
+      display: block;
+      filter: saturate(1.1) contrast(1.1);
+      transition: transform 0.8s ease, filter 0.8s ease;
+    }
+
+    .perf-img:hover img {
+      transform: scale(1.04);
+      filter: saturate(1.4) contrast(1.15);
+    }
+
+    .perf-img-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255, 34, 0, 0.1) 0%, transparent 60%);
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+
+    .perf-img:hover .perf-img-overlay {
+      opacity: 1;
+    }
+
+    .perf-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 3vh;
+    }
+
+    .perf-point {
+      border-left: 1px solid rgba(255, 34, 0, 0.3);
+      padding-left: 2rem;
+      position: relative;
+    }
+
+    .perf-point::before {
+      content: '';
+      position: absolute;
+      left: -4px;
+      top: 50%;
+      width: 7px;
+      height: 7px;
+      background: var(--red);
+      border-radius: 50%;
+      transform: translateY(-50%);
+    }
+
+    .perf-point h3 {
+      font-family: 'VT323', monospace;
+      font-size: 1.8rem;
+      letter-spacing: 0.12em;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+    }
+
+    .perf-point p {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 300;
+      font-size: 0.9rem;
+      line-height: 1.8;
+      color: var(--dim);
+      letter-spacing: 0.02em;
+    }
+
+    /* ── MIXES ── */
+    #mixes {
+      padding: 12vh 6vw;
+      position: relative;
+      background: linear-gradient(to bottom, transparent, rgba(204, 0, 255, 0.03), transparent);
+    }
+
+    .sc-embed-wrap {
+      margin-top: 6vh;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .sc-track {
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 2.5vh 2vw;
+      display: flex;
+      align-items: center;
+      gap: 2vw;
+      transition: background 0.3s, border-color 0.3s;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .sc-track::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 0;
+      background: rgba(255, 34, 0, 0.06);
+      transition: width 0.5s ease;
+    }
+
+    .sc-track:hover {
+      border-color: rgba(255, 34, 0, 0.25);
+    }
+
+    .sc-track:hover::after {
+      width: 100%;
+    }
+
+    .sc-num {
+      font-size: 0.6rem;
+      letter-spacing: 0.3em;
+      color: rgba(255, 34, 0, 0.5);
+      min-width: 2rem;
+    }
+
+    .sc-play {
+      width: 36px;
+      height: 36px;
+      border: 1px solid rgba(255, 34, 0, 0.4);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: background 0.3s, border-color 0.3s;
+    }
+
+    .sc-track:hover .sc-play {
+      background: var(--red);
+      border-color: var(--red);
+    }
+
+    .sc-play svg {
+      width: 12px;
+      height: 12px;
+      fill: currentColor;
+      margin-left: 2px;
+    }
+
+    .sc-title {
+      flex: 1;
+      font-family: 'Syncopate', sans-serif;
+      font-weight: 400;
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .sc-tag {
+      font-size: 0.6rem;
+      letter-spacing: 0.3em;
+      color: rgba(255, 34, 0, 0.6);
+      text-transform: uppercase;
+    }
+
+    .sc-arrow {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.2);
+      transition: color 0.3s, transform 0.3s;
+    }
+
+    .sc-track:hover .sc-arrow {
+      color: var(--red);
+      transform: translateX(4px);
+    }
+
+    .sc-cta {
+      margin-top: 4vh;
+      text-align: center;
+    }
+
+    /* ── BOOKING ── */
+    #booking {
+      padding: 16vh 6vw;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .booking-bg {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(255, 34, 0, 0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .booking-title {
+      font-family: 'Syncopate', sans-serif;
+      font-weight: 700;
+      font-size: clamp(3rem, 8vw, 8rem);
+      line-height: 1.05;
+      position: relative;
+      z-index: 2;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .booking-title .outline {
+      -webkit-text-stroke: 1px rgba(255, 255, 255, 0.15);
+      color: transparent;
+      display: block;
+    }
+
+    .booking-info {
+      display: flex;
+      justify-content: center;
+      gap: 6vw;
+      margin: 6vh 0;
+      position: relative;
+      z-index: 2;
+      flex-wrap: wrap;
+    }
+
+    .booking-item {
+      text-align: left;
+    }
+
+
+    .btn-primary {
+      display: inline-block;
+      padding: 1.2em 3em;
+      border: 1px solid var(--red);
+      color: var(--white);
+      text-decoration: none;
+      font-size: 0.75rem;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      position: relative;
+      overflow: hidden;
+      transition: color 0.4s;
+      z-index: 2;
+    }
+
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--red);
+      transform: translateX(-101%);
+      transition: transform 0.4s ease;
+    }
+
+    .btn-primary:hover {
+      color: var(--black);
+    }
+
+    .btn-primary:hover::before {
+      transform: translateX(0);
+    }
+
+    .btn-primary span {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 4vh 6vw;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .footer-logo {
+      font-family: 'Syncopate', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: 0.15em;
+      color: var(--white);
+    }
+
+    .booking-item label {
+      display: block;
+      font-family: 'VT323', monospace;
+      font-size: 1rem;
+      letter-spacing: 0.4em;
+      color: rgba(255, 34, 0, 0.6);
+      margin-bottom: 0.5rem;
+    }
+
+    .booking-item span {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 300;
+      font-size: 0.95rem;
+      color: var(--dim);
+      letter-spacing: 0.05em;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .social-links a {
+      font-size: 0.65rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.4);
+      text-decoration: none;
+      transition: color 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .social-links a:hover {
+      color: var(--red);
+    }
+
+    .footer-copy {
+      font-size: 0.6rem;
+      color: rgba(255, 255, 255, 0.2);
+      letter-spacing: 0.2em;
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* Reveal-on-scroll */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.9s ease, transform 0.9s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-60px);
+      transition: opacity 0.9s ease, transform 0.9s ease;
+    }
+
+    .reveal-left.active {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(60px);
+      transition: opacity 0.9s ease, transform 0.9s ease;
+    }
+
+    .reveal-right.active {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .reveal-scale {
+      opacity: 0;
+      transform: scale(0.92);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    .reveal-scale.active {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .delay-1 {
+      transition-delay: 0.1s !important;
+    }
+
+    .delay-2 {
+      transition-delay: 0.2s !important;
+    }
+
+    .delay-3 {
+      transition-delay: 0.3s !important;
+    }
+
+    .delay-4 {
+      transition-delay: 0.4s !important;
+    }
+
+    .delay-5 {
+      transition-delay: 0.5s !important;
+    }
+
+    .delay-6 {
+      transition-delay: 0.6s !important;
+    }
+
+    /* ── GLITCH — VT323 pixel-display corruption ── */
+    .glitch-text {
+      position: relative;
+      display: inline-block;
+      /* base phosphor flicker on the text itself */
+      animation: pixelFlicker 6s infinite steps(1);
+    }
+
+    /* Cyan channel — shifts left, covers top half in a choppy slice */
+    .glitch-text::before {
+      content: attr(data-text);
+      position: absolute;
+      top: 0;
+      left: 0;
+      font: inherit;
+      color: var(--cyan);
+      pointer-events: none;
+      opacity: 0;
+      /* pixel fonts look best with hard skew + big translate */
+      animation: glitchCyan 5s infinite steps(1);
+    }
+
+    /* Red/magenta channel — shifts right, covers bottom slice */
+    .glitch-text::after {
+      content: attr(data-text);
+      position: absolute;
+      top: 0;
+      left: 0;
+      font: inherit;
+      color: var(--magenta);
+      pointer-events: none;
+      opacity: 0;
+      animation: glitchMagenta 5s infinite steps(1);
+    }
+
+    /* Flicker of the base text — mimics phosphor CRT dropout */
+    @keyframes pixelFlicker {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      /* two quick dropout bursts */
+      72% {
+        opacity: 1;
+      }
+
+      72.5% {
+        opacity: 0.05;
+      }
+
+      73% {
+        opacity: 1;
+      }
+
+      73.8% {
+        opacity: 0.6;
+      }
+
+      74.2% {
+        opacity: 1;
+      }
+
+      88% {
+        opacity: 1;
+      }
+
+      88.3% {
+        opacity: 0.1;
+      }
+
+      88.6% {
+        opacity: 1;
+      }
+    }
+
+    /* Cyan ghost: big horizontal slice jumps, skew, large X offset */
+    @keyframes glitchCyan {
+
+      0%,
+      100% {
+        opacity: 0;
+      }
+
+      /* burst 1 */
+      20% {
+        opacity: 0;
+      }
+
+      20.5% {
+        opacity: 0.75;
+        transform: translateX(-8px) skewX(-2deg);
+        clip-path: polygon(0 12%, 100% 12%, 100% 28%, 0 28%);
+      }
+
+      21% {
+        opacity: 0.75;
+        transform: translateX(10px) skewX(3deg);
+        clip-path: polygon(0 55%, 100% 55%, 100% 72%, 0 72%);
+      }
+
+      21.4% {
+        opacity: 0.6;
+        transform: translateX(-14px) skewX(-1deg);
+        clip-path: polygon(0 5%, 100% 5%, 100% 18%, 0 18%);
+      }
+
+      21.8% {
+        opacity: 0;
+      }
+
+      /* burst 2 */
+      57% {
+        opacity: 0;
+      }
+
+      57.3% {
+        opacity: 0.8;
+        transform: translateX(12px) skewX(4deg);
+        clip-path: polygon(0 38%, 100% 38%, 100% 58%, 0 58%);
+      }
+
+      57.7% {
+        opacity: 0.5;
+        transform: translateX(-6px) skewX(-3deg);
+        clip-path: polygon(0 70%, 100% 70%, 100% 88%, 0 88%);
+      }
+
+      58.1% {
+        opacity: 0.85;
+        transform: translateX(18px);
+        clip-path: polygon(0 0%, 100% 0%, 100% 12%, 0 12%);
+      }
+
+      58.5% {
+        opacity: 0;
+      }
+
+      /* burst 3 — short single flash */
+      81% {
+        opacity: 0;
+      }
+
+      81.2% {
+        opacity: 0.65;
+        transform: translateX(-10px) skewX(2deg);
+        clip-path: polygon(0 45%, 100% 45%, 100% 65%, 0 65%);
+      }
+
+      81.5% {
+        opacity: 0;
+      }
+    }
+
+    /* Magenta ghost: offset timing, different slices, rightward bias */
+    @keyframes glitchMagenta {
+
+      0%,
+      100% {
+        opacity: 0;
+      }
+
+      /* burst 1 */
+      20.3% {
+        opacity: 0;
+      }
+
+      20.7% {
+        opacity: 0.7;
+        transform: translateX(10px) skewX(3deg);
+        clip-path: polygon(0 60%, 100% 60%, 100% 80%, 0 80%);
+      }
+
+      21.1% {
+        opacity: 0.55;
+        transform: translateX(-12px) skewX(-4deg);
+        clip-path: polygon(0 25%, 100% 25%, 100% 42%, 0 42%);
+      }
+
+      21.6% {
+        opacity: 0.8;
+        transform: translateX(16px);
+        clip-path: polygon(0 82%, 100% 82%, 100% 100%, 0 100%);
+      }
+
+      22% {
+        opacity: 0;
+      }
+
+      /* burst 2 */
+      57.2% {
+        opacity: 0;
+      }
+
+      57.5% {
+        opacity: 0.75;
+        transform: translateX(-8px) skewX(-2deg);
+        clip-path: polygon(0 10%, 100% 10%, 100% 30%, 0 30%);
+      }
+
+      57.9% {
+        opacity: 0.6;
+        transform: translateX(14px) skewX(5deg);
+        clip-path: polygon(0 50%, 100% 50%, 100% 68%, 0 68%);
+      }
+
+      58.3% {
+        opacity: 0;
+      }
+
+      /* burst 3 */
+      81.1% {
+        opacity: 0;
+      }
+
+      81.4% {
+        opacity: 0.7;
+        transform: translateX(9px) skewX(-3deg);
+        clip-path: polygon(0 75%, 100% 75%, 100% 95%, 0 95%);
+      }
+
+      81.7% {
+        opacity: 0;
+      }
+    }
+
+    /* ── BPM LINE ── */
+    .bpm-line {
+      overflow: hidden;
+      padding: 3vh 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      position: relative;
+    }
+
+    .bpm-scroll {
+      display: flex;
+      gap: 4rem;
+      width: max-content;
+      animation: scrollLeft 20s linear infinite;
+    }
+
+    .bpm-scroll span {
+      font-family: 'VT323', monospace;
+      font-size: clamp(1.8rem, 3.5vw, 3rem);
+      letter-spacing: 0.3em;
+      white-space: nowrap;
+      color: rgba(255, 255, 255, 0.06);
+    }
+
+    .bpm-scroll span.accent {
+      color: rgba(255, 34, 0, 0.3);
+    }
+
+    @keyframes scrollLeft {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* ── PARALLAX containers ── */
+    .parallax-slow {
+      will-change: transform;
+    }
+
+    /* Shared portfolio navigation */
+    :root { --bg:#10100f; --paper:#eae7df; --muted:#bcbab3; --line:#474640; --pad:clamp(1.25rem,5.2vw,6rem); }
+    .site-nav { position:fixed; z-index:50; top:0; left:0; right:0; display:flex; justify-content:space-between; align-items:center; gap:1rem; padding:1rem var(--pad); min-height:5rem; background:rgba(16,16,15,.9); border-bottom:1px solid rgba(234,231,223,.18); color:var(--paper); font: .7rem 'Share Tech Mono',monospace; text-transform:uppercase; letter-spacing:.12em; }
+    .brand { font-family:Syncopate,sans-serif; font-weight:700; letter-spacing:.04em; text-decoration:none; color:var(--paper); font-size:clamp(.72rem,1vw,.85rem); }
+    .nav-links { display:flex; gap:3rem; }
+    .nav-links a { color:var(--paper); text-decoration:none; padding:.7rem 0; position:relative; font-size:.7rem; }
+    .nav-links a::after { content:''; position:absolute; bottom:.25rem; left:0; right:0; height:1px; background:#ff493d; transform:scaleX(.001); transform-origin:left; transition:transform .25s ease; }
+    .nav-links a:hover, .nav-links a:focus-visible { color:#ff493d; }
+    .nav-links a:hover::after, .nav-links a:focus-visible::after { transform:scaleX(1); }
+    .menu-trigger { display:none; align-items:center; gap:.8rem; min-height:44px; padding:.5rem 0 .5rem 1rem; border:0; background:none; color:var(--paper); font:.7rem 'Share Tech Mono',monospace; letter-spacing:.12em; text-transform:uppercase; cursor:pointer; }
+    .menu-icon { width:25px; height:10px; border-top:1px solid currentColor; border-bottom:1px solid currentColor; }
+    .mobile-menu { position:fixed; inset:0; width:100%; max-width:none; height:100%; height:100dvh; max-height:none; margin:0; padding:0; border:0; background:var(--bg); color:var(--paper); overflow:auto; }
+    .mobile-menu::backdrop { background:#090909; }
+    .menu-inner { min-height:100%; display:flex; flex-direction:column; padding:1rem var(--pad) max(2rem,env(safe-area-inset-bottom)); background:linear-gradient(160deg,#1c0c0c 0%,#090909 45%); }
+    .menu-top { display:flex; align-items:center; justify-content:space-between; min-height:2.75rem; border-bottom:1px solid var(--line); padding-bottom:1rem; }
+    .menu-close { border:0; background:none; color:var(--paper); font:.7rem 'Share Tech Mono',monospace; letter-spacing:.12em; text-transform:uppercase; min-height:44px; cursor:pointer; }
+    .menu-close span { font-size:1.7rem; vertical-align:middle; margin-left:.6rem; color:#ff493d; }
+    .menu-main { display:flex; flex-direction:column; justify-content:center; flex:1; padding:3rem 0; }
+    .menu-main a { color:var(--paper); font:clamp(4rem,15vw,7rem)/.95 VT323,monospace; text-decoration:none; text-transform:uppercase; border-bottom:1px solid var(--line); padding:.15em 0; transition:color .2s ease; }
+    .menu-main a:hover, .menu-main a:focus-visible { color:#ff493d; }
+    .menu-bottom { display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap; color:var(--muted); font:.7rem/1.7 'Share Tech Mono',monospace; text-transform:uppercase; letter-spacing:.08em; }
+    .menu-bottom a { color:var(--paper); }
+    body.menu-open { overflow:hidden; }
+    a:focus-visible, button:focus-visible { outline:2px solid #ff493d; outline-offset:5px; }
+    @media (max-width:700px) {
+      .site-nav { min-height:4.25rem; }
+      .site-nav .nav-links { gap:.8rem; flex-wrap:wrap; justify-content:flex-end; }
+      .js-menu .site-nav .nav-links { display:none; }
+      .js-menu .menu-trigger { display:flex; }
+    }
+
+    @media (max-width: 768px) {
+      .traits-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      #about {
+        grid-template-columns: 1fr;
+      }
+
+      .perf-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-name {
+        font-size: clamp(4rem, 18vw, 8rem);
+      }
+
+      #performance .big-title {
+        font-size: clamp(2rem, 8vw, 4rem);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Custom cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- NAV -->
+  <nav class="site-nav" aria-label="Main navigation"><a class="brand" href="index.html#top">TOM DRACO</a><div class="nav-links"><a href="index.html#about">About</a><a href="index.html#work">Work</a><a href="dj.html" aria-current="page">DJ</a><a href="index.html#contact">Contact</a></div><button class="menu-trigger" type="button" aria-haspopup="dialog" aria-controls="mobile-menu" aria-expanded="false">Menu <span class="menu-icon" aria-hidden="true"></span></button></nav>
+  <dialog class="mobile-menu" id="mobile-menu" aria-label="Navigation menu"><div class="menu-inner"><div class="menu-top"><span class="brand">TOM DRACO</span><button class="menu-close" type="button" aria-label="Close navigation menu">Close <span aria-hidden="true">×</span></button></div><nav class="menu-main" aria-label="Mobile navigation"><a href="index.html#about">About</a><a href="index.html#work">Work</a><a href="dj.html" aria-current="page">DJ</a><a href="index.html#contact">Contact</a></nav><div class="menu-bottom"><span>Music · Sound · Image<br>Madrid, Spain</span><a href="mailto:tomdracodjd@gmail.com">Get in touch ↗</a></div></div></dialog>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-img"></div>
+    <div class="scanlines"></div>
+
+    <div class="hero-content">
+      <div class="hero-tag">// RAW / HYPNOTIC TECHNO / MADRID</div>
+      <h1 class="hero-name glitch-text" data-text="TOM DRACO">
+        TOM DRACO
+      </h1>
+
+    </div>
+
+    <div class="scroll-hint">SCROLL</div>
+  </section>
+
+  <!-- TICKER -->
+  <div class="bpm-line">
+    <div class="bpm-scroll">
+      <span>TOM DRACO</span>
+      <span class="accent">RAW TECHNO</span>
+      <span>HYPNOTIC</span>
+      <span class="accent">DYNAMIC BPM</span>
+      <span>UNDERGROUND</span>
+      <span class="accent">EMOTIONAL</span>
+      <span>MADRID</span>
+      <span class="accent">IN MOTION</span>
+      <span>TOM DRACO</span>
+      <span class="accent">RAW TECHNO</span>
+      <span>HYPNOTIC</span>
+      <span class="accent">DYNAMIC BPM</span>
+      <span>UNDERGROUND</span>
+      <span class="accent">EMOTIONAL</span>
+      <span>MADRID</span>
+      <span class="accent">IN MOTION</span>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about-img-wrap reveal-left">
+      <img src="images/02.jpeg" alt="Tom Draco">
+    </div>
+
+    <div class="about-text">
+      <div class="section-label reveal">BIO</div>
+      <h2 class="about-title reveal delay-1">THE ARTIST<br>IN MOTION</h2>
+      <p class="about-body reveal delay-2">
+        Tom Draco is a DJ focused on raw, hypnotic techno, known for dynamic sets where tempo and energy constantly evolve. His sessions unfold as journeys in perpetual transformation, moving between deep rhythms, mental tension and moments of high intensity.
+      </p>
+      <p class="about-body reveal delay-3">
+        Influenced by Oscar Mulero’s hypnotic tension, Jeff Mills’ energetic storytelling and the experimental sensibility of artists like Björk and The Chemical Brothers, his sound explores immersive textures, shifts in BPM and intense progressions designed to create an emotional experience on the dance floor.
+      </p>
+      <div class="influences">
+        <div class="influence-item reveal delay-2">Oscar Mulero — Hypnotic Tension</div>
+        <div class="influence-item reveal delay-3">Jeff Mills — Energetic Storytelling</div>
+        <div class="influence-item reveal delay-4">Björk — Experimental Sensibility</div>
+        <div class="influence-item reveal delay-5">The Chemical Brothers — Emotional Architecture</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOUND -->
+  <section id="sound">
+    <div class="sound-header">
+      <div class="section-label reveal" style="justify-content:center">SONIC IDENTITY</div>
+      <h2 class="big-title reveal">SOUND</h2>
+      <h2 class="big-title outline reveal delay-1">DESIGN</h2>
+    </div>
+
+    <div class="traits-grid">
+      <div class="trait reveal delay-1">
+        <span class="trait-num">01</span>
+        <span class="trait-name">HYPNOTIC</span>
+        <p class="trait-desc">Immersive textures build a state of trance, with every element drawing the listener deeper into the sonic space.</p>
+      </div>
+      <div class="trait reveal delay-2">
+        <span class="trait-num">02</span>
+        <span class="trait-name">DYNAMIC</span>
+        <p class="trait-desc">Constantly evolving tempos between 130 and 170 BPM. Energy breathes, rises and releases in an organic flow.</p>
+      </div>
+      <div class="trait reveal delay-3">
+        <span class="trait-num">03</span>
+        <span class="trait-name">EMOTIONAL</span>
+        <p class="trait-desc">Beyond structure, the sets explore immersion, contrast and emotional release, moving beyond linear forms.</p>
+      </div>
+      <div class="trait reveal delay-4">
+        <span class="trait-num">04</span>
+        <span class="trait-name">TENSION</span>
+        <p class="trait-desc">Mental pressure builds through groove, texture and rhythm. The dance floor becomes a place for release and catharsis.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PERFORMANCE -->
+  <section id="performance">
+    <div class="section-label reveal">LIVE</div>
+    <h2 class="big-title reveal delay-1">THE SET AS<br><span
+        style="-webkit-text-stroke:1px rgba(255,255,255,0.12);color:transparent;">NARRATIVE</span></h2>
+
+    <div class="perf-grid" style="margin-top: 6vh;">
+      <div class="perf-img reveal-left">
+        <img src="images/03.jpeg" alt="Tom Draco performing">
+        <div class="perf-img-overlay"></div>
+      </div>
+
+      <div class="perf-info">
+        <div class="perf-point reveal delay-1">
+          <h3>Underground Spaces</h3>
+          <p>Sets designed for underground clubs, immersive spaces and techno-focused events. The architecture of the room shapes the session.</p>
+        </div>
+        <div class="perf-point reveal delay-2">
+          <h3>Warm-Up and Build</h3>
+          <p>Specializing in warm-up sets and a gradual build of energy, adapting the sound to the space and the flow of the night.</p>
+        </div>
+        <div class="perf-point reveal delay-3">
+          <h3>Formats</h3>
+          <p>Warm-up / Opening Set / Club Set. Each format has a distinct purpose in the development of the night.
+          </p>
+        </div>
+        <div class="perf-point reveal delay-4">
+          <h3>Organic Tempo Dynamics</h3>
+          <p>Constantly evolving tempos create more organic, hypnotic and shifting experiences on the dance floor — never the same journey twice.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MIXES -->
+  <section id="mixes">
+    <div class="section-label reveal">MIXES</div>
+    <h2 class="big-title reveal delay-1">LISTEN</h2>
+
+    <div class="sc-embed-wrap">
+      <iframe title="Dune by Tom Draco on SoundCloud" width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay; encrypted-media"
+        src="https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Ftomdracodj%2Fdune&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true"></iframe>
+      <div style="font-size: 10px; color: #cccccc; line-break: anywhere; word-break: normal; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif; font-weight: 100;">
+        <a href="https://soundcloud.com/tomdracodj" title="Tom Draco" target="_blank" rel="noopener" style="color: #cccccc; text-decoration: none;">Tom Draco</a> · <a href="https://soundcloud.com/tomdracodj/dune" title="Dune" target="_blank" rel="noopener" style="color: #cccccc; text-decoration: none;">Dune</a>
+      </div>
+    </div>
+
+    <div class="sc-embed-wrap">
+      <iframe title="DJ set Under The Skin on SoundCloud" width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay; encrypted-media"
+        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2170481607&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+      <div
+        style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;">
+        <a href="https://soundcloud.com/tomdracodj" title="Tom Draco" target="_blank"
+          style="color: #cccccc; text-decoration: none;">Tom Draco</a> · <a
+          href="https://soundcloud.com/tomdracodj/dj-set-under-my-skin" title="Dj set - Under The Skin" target="_blank"
+          style="color: #cccccc; text-decoration: none;">Dj set - Under The Skin</a></div>
+    </div>
+
+    <div class="sc-embed-wrap">
+      <iframe title="DJ set Annihilation on SoundCloud" width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay; encrypted-media"
+        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2170487130&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+      <div
+        style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;">
+        <a href="https://soundcloud.com/tomdracodj" title="Tom Draco" target="_blank"
+          style="color: #cccccc; text-decoration: none;">Tom Draco</a> · <a
+          href="https://soundcloud.com/tomdracodj/dj-set-annihilation" title="Dj set - Annihilation" target="_blank"
+          style="color: #cccccc; text-decoration: none;">Dj set - Annihilation</a></div>
+    </div>
+
+    <div class="sc-cta reveal delay-4" style="margin-top: 4vh;">
+      <a href="https://soundcloud.com/Tomdracodj" target="_blank" rel="noopener" class="btn-primary">
+        <span>All mixes on SoundCloud →</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- BOOKING -->
+  <section id="booking">
+    <div class="booking-bg"></div>
+    <div class="section-label reveal" style="justify-content:center">CONTACT</div>
+    <h2 class="hero-name glitch-text small" data-text="BOOK TOM DRACO">
+      BOOK TOM DRACO
+    </h2>
+
+    <div class="booking-info reveal delay-2">
+      <div class="booking-item">
+        <label>Location</label>
+        <span>Madrid, Spain</span>
+      </div>
+      <div class="booking-item">
+        <label>Formats</label>
+        <span>Warm-up / Opening / Club Set</span>
+      </div>
+      <div class="booking-item">
+        <label>Genre</label>
+        <span>Raw / Hypnotic Techno</span>
+      </div>
+      <div class="booking-item">
+        <label>BPM Range</label>
+        <span>130 – 170 BPM</span>
+      </div>
+    </div>
+
+    <div class="reveal delay-3" style="display:flex; gap:1.5rem; justify-content:center; flex-wrap:wrap;">
+      <a href="mailto:tomdracodjd@gmail.com" class="btn-primary"><span>Book by email</span></a>
+      <a href="https://wa.me/34603658615?text=I%27m%20contacting%20you%20through%20the%20Tom%20Draco%20website"
+        target="_blank" rel="noopener" class="btn-primary"><span
+          style="display:inline-flex; align-items:center; gap:0.5rem;"><svg width="16" height="16" viewBox="0 0 24 24"
+            fill="currentColor">
+            <path
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+          </svg>Contact via WhatsApp</span></a>
+      <a href="https://www.instagram.com/Tomdracodj" target="_blank" rel="noopener" class="btn-primary"
+        style="border-color:rgba(255,255,255,0.2); color:rgba(255,255,255,0.6);"><span>Instagram</span></a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="social-links">
+      <a href="https://soundcloud.com/Tomdracodj" target="_blank" rel="noopener">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M1.175 12.225c-.15 0-.25.1-.25.25l-.357 2.254.357 2.178c0 .15.1.25.25.25s.25-.1.25-.25l.4-2.178-.4-2.254c0-.15-.1-.25-.25-.25zm1.89-.524c-.175 0-.312.137-.312.312l-.313 2.466.313 2.328c0 .175.137.312.312.312s.313-.137.313-.312l.362-2.328-.362-2.466c0-.175-.138-.312-.313-.312zm1.924-.386c-.2 0-.362.162-.362.362l-.274 2.852.274 2.49c0 .2.162.362.362.362s.362-.162.362-.362l.313-2.49-.313-2.852c0-.2-.162-.362-.362-.362zm1.924-.1c-.225 0-.412.187-.412.412l-.238 2.952.238 2.64c0 .225.187.412.412.412s.412-.187.412-.412l.275-2.64-.275-2.952c0-.225-.187-.412-.412-.412zM8.9 8.524c-.25 0-.45.2-.45.45l-.2 3.364.2 2.778c0 .25.2.45.45.45s.45-.2.45-.45l.225-2.778-.225-3.364c0-.25-.2-.45-.45-.45zm1.924-.762c-.275 0-.5.225-.5.5l-.163 3.602.163 2.916c0 .275.225.5.5.5s.5-.225.5-.5l.188-2.916-.188-3.602c0-.275-.225-.5-.5-.5zm1.961-.288c-.3 0-.537.237-.537.537l-.125 3.652.125 3.004c0 .3.237.537.537.537s.537-.237.537-.537l.15-3.004-.15-3.652c0-.3-.237-.537-.537-.537zm1.962.025c-.325 0-.587.262-.587.587l-.1 3.627.1 3.054c0 .325.262.587.587.587s.587-.262.587-.587l.113-3.054-.113-3.627c0-.325-.262-.587-.587-.587zm1.986-.274c-.35 0-.637.287-.637.637l-.076 3.901.076 3.079c0 .35.287.637.637.637s.637-.287.637-.637l.088-3.079-.088-3.901c0-.35-.287-.637-.637-.637zm2-.226c-.375 0-.675.3-.675.675l-.05 4.127.05 3.104c0 .375.3.675.675.675s.675-.3.675-.675l.063-3.104-.063-4.127c0-.375-.3-.675-.675-.675zm2.012-.1c-.4 0-.712.312-.712.712l-.025 4.227.025 3.129c0 .4.312.712.712.712s.712-.312.712-.712l.038-3.129-.038-4.227c0-.4-.312-.712-.712-.712zm2.05-.5c-.425 0-.762.337-.762.762l0 7.956c0 .425.337.762.762.762h.001c2.088 0 3.775-1.688 3.775-3.775 0-2.088-1.687-3.775-3.775-3.775l-.001.07z" />
+        </svg>
+        SoundCloud
+      </a>
+      <a href="https://www.instagram.com/Tomdracodj" target="_blank" rel="noopener">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+        </svg>
+        Instagram
+      </a>
+      <a href="mailto:tomdracodjd@gmail.com">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+        </svg>
+        Email
+      </a>
+    </div>
+    <div class="footer-copy">© 2026 TOM DRACO — MADRID</div>
+  </footer>
+
+  <script>
+    // Custom cursor
+    const cursor = document.getElementById('cursor');
+    const ring = document.getElementById('cursorRing');
+    let mx = 0, my = 0, rx = 0, ry = 0;
+    document.addEventListener('mousemove', e => {
+      mx = e.clientX; my = e.clientY;
+      cursor.style.left = mx + 'px';
+      cursor.style.top = my + 'px';
+    });
+    function animRing() {
+      rx += (mx - rx) * 0.12;
+      ry += (my - ry) * 0.12;
+      ring.style.left = rx + 'px';
+      ring.style.top = ry + 'px';
+      requestAnimationFrame(animRing);
+    }
+    animRing();
+    document.querySelectorAll('a, button, .trait, .sc-track').forEach(el => {
+      el.addEventListener('mouseenter', () => { cursor.style.background = 'transparent'; ring.style.width = '56px'; ring.style.height = '56px'; ring.style.borderColor = 'rgba(255,34,0,0.7)'; });
+      el.addEventListener('mouseleave', () => { cursor.style.background = 'var(--red)'; ring.style.width = '36px'; ring.style.height = '36px'; ring.style.borderColor = 'rgba(255,34,0,0.5)'; });
+    });
+
+    const menu = document.querySelector('#mobile-menu');
+    const menuTrigger = document.querySelector('.menu-trigger');
+    const menuClose = document.querySelector('.menu-close');
+    if (typeof menu.showModal === 'function') {
+      document.documentElement.classList.add('js-menu');
+      menuTrigger.addEventListener('click', () => {
+        menu.showModal();
+        document.body.classList.add('menu-open');
+        menuTrigger.setAttribute('aria-expanded', 'true');
+        menuClose.focus();
+      });
+      menuClose.addEventListener('click', () => menu.close());
+      menu.addEventListener('click', event => {
+        if (event.target.closest('a')) menu.close();
+      });
+      menu.addEventListener('close', () => {
+        document.body.classList.remove('menu-open');
+        menuTrigger.setAttribute('aria-expanded', 'false');
+      });
+      window.matchMedia('(min-width: 701px)').addEventListener('change', event => {
+        if (event.matches && menu.open) menu.close();
+      });
+    }
+
+    // Reveal on scroll
+    const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) e.target.classList.add('active');
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+    revealEls.forEach(el => observer.observe(el));
+
+    // Parallax on scroll
+    window.addEventListener('scroll', () => {
+      const sy = window.scrollY;
+      document.querySelectorAll('.hero-img').forEach(el => {
+        el.style.transform = `translateY(${sy * 0.3}px) scale(1)`;
+      });
+    });
+  </script>
+</body>
+
+</html>
